@@ -1,4 +1,4 @@
-/* Reset basic styles */
+/* ---------------------- Reset basic styles ---------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -6,14 +6,14 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body */
+/* -------------------------- Body -------------------------- */
 body {
     background-color: #0d1117;
     color: #c9d1d9;
     line-height: 1.6;
 }
 
-/* Header / Navigation */
+/* ------------------------ Header / Navigation ------------------------ */
 header {
     background-color: #161b22;
     padding: 20px 0;
@@ -28,12 +28,26 @@ header .container {
     align-items: center;
 }
 
+/* Logo container with image + text */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* space between logo and text */
+}
+
+.logo-img {
+    width: 40px; /* proportional size */
+    height: auto;
+    display: block;
+}
+
 header .logo {
     font-size: 1.8rem;
     color: #58a6ff;
     font-weight: bold;
 }
 
+/* Navigation */
 header nav ul {
     list-style: none;
     display: flex;
@@ -54,7 +68,7 @@ header nav ul li a:hover {
     color: #58a6ff;
 }
 
-/* Hero Section */
+/* -------------------------- Hero Section -------------------------- */
 .hero {
     text-align: center;
     padding: 100px 20px;
@@ -72,7 +86,7 @@ header nav ul li a:hover {
     color: #8b949e;
 }
 
-/* About Section */
+/* -------------------------- About Section -------------------------- */
 .about {
     padding: 60px 20px;
     width: 90%;
@@ -90,7 +104,7 @@ header nav ul li a:hover {
     color: #c9d1d9;
 }
 
-/* Team Section */
+/* -------------------------- Team Section -------------------------- */
 .team {
     padding: 60px 20px;
     width: 90%;
@@ -147,7 +161,7 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Contact Section */
+/* -------------------------- Contact Section -------------------------- */
 .contact {
     padding: 60px 20px;
     text-align: center;
@@ -162,34 +176,18 @@ header nav ul li a:hover {
 .contact a {
     color: #58a6ff;
     text-decoration: none;
+    margin: 0 10px;
 }
 
 .contact a:hover {
     text-decoration: underline;
 }
 
-/* Footer */
+/* -------------------------- Footer -------------------------- */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #161b22;
     border-top: 1px solid #30363d;
     color: #8b949e;
-}
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* space between logo and text */
-}
-
-.logo-img {
-    width: 40px; /* smaller, more proportional */
-    height: auto;
-    display: block;
-}
-
-header .logo {
-    font-size: 1.8rem;
-    color: #58a6ff;
-    font-weight: bold;
 }
