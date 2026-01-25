@@ -1,0 +1,178 @@
+/* Reset basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    line-height: 1.6;
+}
+
+/* Header / Navigation */
+header {
+    background-color: #161b22;
+    padding: 20px 0;
+    border-bottom: 1px solid #30363d;
+}
+
+header .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #58a6ff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0d1117, #161b22);
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #58a6ff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #8b949e;
+}
+
+/* About Section */
+.about {
+    padding: 60px 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.about h2 {
+    font-size: 2rem;
+    color: #58a6ff;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #c9d1d9;
+}
+
+/* Team Section */
+.team {
+    padding: 60px 20px;
+    width: 90%;
+    margin: auto;
+}
+
+.team h2 {
+    font-size: 2rem;
+    color: #58a6ff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.member {
+    background-color: #161b22;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s;
+}
+
+.member:hover {
+    transform: scale(1.05);
+}
+
+.member h3 {
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+.member p {
+    color: #c9d1d9;
+}
+
+.doc-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.doc-link a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.doc-link a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    color: #58a6ff;
+    margin-bottom: 20px;
+}
+
+.contact a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #161b22;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+}
