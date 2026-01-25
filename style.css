@@ -183,6 +183,13 @@ footer {
 }
 
 .logo-img {
-    width: 50px; /* adjust as needed */
+    width: 40px; /* smaller, more proportional */
     height: auto;
+    display: block;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    color: #58a6ff;
+    font-weight: bold;
 }
