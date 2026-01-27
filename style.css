@@ -1,4 +1,4 @@
-/* ---------------------- Reset basic styles ---------------------- */
+/* ====================== RESET ====================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,18 +6,50 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* -------------------------- Body -------------------------- */
+/* ====================== BODY ====================== */
 body {
     background-color: #0d1117;
     color: #c9d1d9;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
-/* ------------------------ Header / Navigation ------------------------ */
+/* ====================== GLOBAL SECTION SYSTEM ====================== */
+section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto 100px auto;
+    padding: 70px 40px;
+}
+
+section h2 {
+    font-size: 2.2rem;
+    color: #58a6ff;
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+section p,
+section li {
+    font-size: 1.05rem;
+    color: #8b949e;
+}
+
+/* Panel-style sections */
+.section-panel {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 14px;
+}
+
+/* ====================== HEADER ====================== */
 header {
     background-color: #161b22;
     padding: 20px 0;
     border-bottom: 1px solid #30363d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header .container {
@@ -28,17 +60,15 @@ header .container {
     align-items: center;
 }
 
-/* Logo container with image + text */
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 12px; /* space between logo and text */
+    gap: 12px;
 }
 
 .logo-img {
-    width: 30px; /* proportional size */
+    width: 30px;
     height: auto;
-    display: block;
 }
 
 header .logo {
@@ -46,12 +76,7 @@ header .logo {
     color: #58a6ff;
     font-weight: bold;
 }
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-/* Navigation */
+
 header nav ul {
     list-style: none;
     display: flex;
@@ -65,23 +90,41 @@ header nav ul li a {
     color: #c9d1d9;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    position: relative;
 }
 
-header nav ul li a:hover {
-    color: #58a6ff;
+header nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #58a6ff;
+    transition: width 0.3s ease;
 }
 
-/* -------------------------- Hero Section -------------------------- */
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ====================== HERO ====================== */
 .hero {
-    text-align: center;
-    padding: 100px 20px;
+    width: 100%;
+    max-width: none;
+    min-height: 80vh;
+    margin: 0 0 120px 0;
+    padding: 0 20px;
     background: linear-gradient(135deg, #0d1117, #161b22);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    color: #58a6ff;
+    font-size: 3rem;
+    font-weight: 700;
     margin-bottom: 20px;
 }
 
@@ -90,55 +133,19 @@ header nav ul li a:hover {
     color: #8b949e;
 }
 
-/* -------------------------- About Section -------------------------- */
-.about {
-    padding: 60px 20px;
-    width: 90%;
-    margin: auto;
-}
-
-.about h2 {
-    font-size: 2rem;
-    color: #58a6ff;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 1.1rem;
-    color: #c9d1d9;
-}
-/* -------------------------- Section Styling -------------------------- */
-section {
-    margin-bottom: 80px;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* -------------------------- Technology -------------------------- */
+/* ====================== TECHNOLOGY / ARCHITECTURE ====================== */
 .technology,
 .architecture {
-    width: 90%;
-    margin: auto;
     text-align: center;
 }
 
 .technology p,
 .architecture p {
     max-width: 900px;
-    margin: auto;
-    color: #8b949e;
-    font-size: 1.05rem;
+    margin: 0 auto;
 }
 
-/* -------------------------- Innovation Cards -------------------------- */
-.innovation {
-    width: 90%;
-    margin: auto;
-}
-
+/* ====================== INNOVATION ====================== */
 .innovation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -146,55 +153,40 @@ section h2 {
 }
 
 .card {
-    background-color: #161b22;
-    padding: 25px;
-    border-radius: 10px;
+    background-color: #0d1117;
+    padding: 28px;
+    border-radius: 12px;
     border: 1px solid #30363d;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(88, 166, 255, 0.15);
+    box-shadow: 0 12px 30px rgba(88, 166, 255, 0.18);
 }
 
 .card h3 {
     color: #58a6ff;
     margin-bottom: 12px;
+    font-size: 1.2rem;
 }
 
-/* -------------------------- Applications -------------------------- */
+/* ====================== APPLICATIONS ====================== */
 .applications {
-    width: 90%;
-    margin: auto;
     text-align: center;
 }
 
 .applications ul {
     list-style: none;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .applications li {
-    margin: 10px 0;
-    color: #c9d1d9;
+    padding: 6px 0;
+    letter-spacing: 0.2px;
 }
 
-
-/* -------------------------- Team Section -------------------------- */
-.team {
-    padding: 60px 20px;
-    width: 90%;
-    margin: auto;
-}
-
-.team h2 {
-    font-size: 2rem;
-    color: #58a6ff;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
+/* ====================== TEAM ====================== */
 .team-members {
     display: flex;
     flex-wrap: wrap;
@@ -203,30 +195,27 @@ section h2 {
 }
 
 .member {
-    background-color: #161b22;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #0d1117;
+    padding: 24px;
+    border-radius: 10px;
     text-align: center;
     width: 220px;
-    transition: transform 0.3s;
+    border: 1px solid #30363d;
+    transition: transform 0.3s ease;
 }
 
 .member:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
 }
 
 .member h3 {
     color: #58a6ff;
-    margin-bottom: 10px;
-}
-
-.member p {
-    color: #c9d1d9;
+    margin-bottom: 8px;
 }
 
 .doc-link {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .doc-link a {
@@ -238,46 +227,41 @@ section h2 {
     text-decoration: underline;
 }
 
-/* -------------------------- Contact Section -------------------------- */
+/* ====================== CONTACT ====================== */
 .contact {
-    padding: 60px 20px;
     text-align: center;
-}
-
-.contact h2 {
-    font-size: 2rem;
-    color: #58a6ff;
-    margin-bottom: 20px;
 }
 
 .contact a {
     color: #58a6ff;
     text-decoration: none;
-    margin: 0 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .contact a:hover {
-    text-decoration: underline;
+    background: rgba(88, 166, 255, 0.15);
+    transform: translateY(-2px);
 }
 
-/* -------------------------- Footer -------------------------- */
+/* ====================== FOOTER ====================== */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 25px;
     background-color: #161b22;
     border-top: 1px solid #30363d;
     color: #8b949e;
-} 
-
-section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
 }
 
-@keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ====================== SCROLL ANIMATION ====================== */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
