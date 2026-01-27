@@ -1,78 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurevo Dynamics</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo_favicon.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurevo Dynamics</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/favicon.png" />
 </head>
+
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <img src="logo.jpg" alt="Aurevo Dynamics Logo" class="logo-img">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <h2>Building the Future of Energy Storage</h2>
-        <p>Hybrid Zinc-Ion Capacitors | Safe, Fast, and Powerful</p>
-    </section>
+<header>
+  <div class="nav-container">
+    <div class="brand">Aurevo Dynamics</div>
+    <nav>
+      <a href="#technology">Technology</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#research">Research</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Aurevo Dynamics designs next-level energy storage devices. We combine zinc batteries with capacitors to create systems that handle high power, charge fast, and stay safe. Our proprietary method of combining the battery and capacitro, coupled with the solvation-structure engineered gel electrolytes control ion flow, prevent dendrites, and make long-lasting hybrid capacitors for e-bikes, robotics, UPS, and high-power electronics.</p>
-    </section>
+<section class="hero">
+  <h1 data-aos="fade-up">
+    Solvation-Engineered Hybrid Zinc-Ion Capacitors
+  </h1>
+  <p data-aos="fade-up" data-aos-delay="150">
+    Polymer gel electrolytes · EDLC buffering · Controlled zinc electrochemistry
+  </p>
+</section>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <h2>Our Team</h2>
-        <div class="team-members">
-            <div class="member">
-                <h3>Hitesh Kumaar K</h3>
-                <p>CEO & Founder</p>
-            </div>
-            <div class="member">
-                <h3>Sindhi Mathini I</h3>
-                <p>Co-Founder</p>
-            </div>
-            <div class="member">
-                <h3>Jeevan VP</h3>
-                <p>Lead Electrical Engineer</p>
-            </div>
-            <div class="member">
-                <h3>Roshan J</h3>
-                <p>Social Media Manager</p>
-            </div>
-        </div>
-        <p class="doc-link">Documentation: <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank">View PDF</a></p>
-    </section>
+<section class="zinc-visual" id="technology">
+  <h2 data-aos="fade-up">The Zinc Problem</h2>
+  <p data-aos="fade-up" data-aos-delay="100">
+    Conventional aqueous zinc systems fail under high power due to dendritic growth,
+    hydrogen evolution, and uncontrolled ion flux.
+  </p>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>
-            Email: <a href="mailto:aurevodynamics@gmail.com">aurevodynamics@gmail.com</a> | 
-            LinkedIn: <a href="https://www.linkedin.com/company/aurevodynamics" target="_blank">AurevoDynamics</a> | 
-            X: <a href="https://x.com/AurevoDynamics" target="_blank">AurevoDynamics</a>
-        </p>
+  <div class="zinc-animation" data-aos="fade-up">
+    <svg viewBox="0 0 600 200">
+      <rect x="50" y="80" width="500" height="40" rx="6" class="zinc-sheet"/>
+      <circle cx="120" cy="100" r="4" class="ion"/>
+      <circle cx="220" cy="100" r="4" class="ion"/>
+      <circle cx="320" cy="100" r="4" class="ion"/>
+      <circle cx="420" cy="100" r="4" class="ion"/>
+    </svg>
+  </div>
+</section>
 
-    </section>
+<section class="approach">
+  <h2 data-aos="fade-up">Our Approach</h2>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Aurevo Dynamics. All Rights Reserved.</p>
-    </footer>
+  <div class="approach-grid">
+    <div class="card" data-aos="fade-up">
+      <h3>Hybrid Architecture</h3>
+      <p>
+        Zinc battery chemistry integrated with an EDLC branch, electronically
+        decoupled via active DC–DC control.
+      </p>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Solvation-Regulated Gel Electrolyte</h3>
+      <p>
+        PVA-based polymer gels engineered to restructure Zn²⁺ solvation,
+        homogenize ion flux, and suppress dendrite initiation.
+      </p>
+    </div>
+
+    <div class="card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Active Current Partitioning</h3>
+      <p>
+        EDLC absorbs transient power demands while zinc operates strictly within
+        electrochemically safe CC–CV limits.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="architecture" id="architecture">
+  <h2 data-aos="fade-up">System Architecture</h2>
+  <img src="assets/architecture.svg" alt="HZIC Architecture" data-aos="fade-up">
+  <p data-aos="fade-up" data-aos-delay="100">
+    The HZIC system integrates electrochemical, polymer, and power-electronic
+    constraints into a unified architecture optimized for safety and power.
+  </p>
+</section>
+
+<section class="research" id="research">
+  <h2 data-aos="fade-up">Research & Documentation</h2>
+
+  <div class="paper-card" data-aos="fade-up">
+    <h3>Zinc-Ion Capacitor Architecture Enabled by Solvation-Regulated Polymer Gel Electrolytes</h3>
+    <p>
+      K. Hitesh Kumaar · I. Sindhi Mathini · V.P. Jeevan  
+      <br>Aurevo Dynamics, Chennai, India
+    </p>
+    <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view" target="_blank">
+      View Technical PDF
+    </a>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <h2 data-aos="fade-up">Team</h2>
+
+  <div class="team-grid">
+    <div class="member" data-aos="fade-up">
+      <h4>Hitesh Kumaar K</h4>
+      <span>Founder & CEO</span>
+    </div>
+    <div class="member" data-aos="fade-up" data-aos-delay="100">
+      <h4>Sindhi Mathini I</h4>
+      <span>Co-Founder</span>
+    </div>
+    <div class="member" data-aos="fade-up" data-aos-delay="200">
+      <h4>Jeevan V.P</h4>
+      <span>Lead Electrical Engineer</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 data-aos="fade-up">Contact</h2>
+  <p data-aos="fade-up">
+    aurevodynamics@gmail.com<br>
+    Chennai, India
+  </p>
+</section>
+
+<footer>
+  © 2026 Aurevo Dynamics
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
