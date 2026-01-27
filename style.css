@@ -19,6 +19,11 @@ header {
     padding: 20px 0;
     border-bottom: 1px solid #30363d;
 }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
 header .container {
     width: 90%;
