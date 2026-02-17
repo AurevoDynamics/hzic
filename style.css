@@ -319,7 +319,4 @@ text-decoration: none;
 transition: all 0.3s ease;
 }
 
-.cta-btn:hover {
-background: #79c0ff;
-transform: translateY(-3px);
-}
+
