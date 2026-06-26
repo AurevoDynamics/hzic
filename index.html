@@ -1,214 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurevo Dynamics</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo_favicon.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurevo Dynamics | Hybrid Zinc-Ion Energy Systems</title>
+  <meta name="description" content="Aurevo Dynamics develops HZIC — kinetically graded bipolar zinc hybrid capacitors with sub-minute operational readiness, 3000+ cycle life, and zero thermal runaway risk.">
+  <meta property="og:title" content="Aurevo Dynamics | Hybrid Zinc-Ion Energy Systems">
+  <meta property="og:description" content="Battery-level energy. Capacitor-level power. Architecturally controlled safety. No lithium.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<script>
-document.documentElement.classList.add("js");
-
-window.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-
-    sections.forEach(section => {
-        section.classList.add("visible");
-    });
-
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.15 }
-    );
-
-    sections.forEach(section => observer.observe(section));
-});
-</script>
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo-container">
-                <img src="logo.jpg" alt="Aurevo Dynamics Logo" class="logo-img">
-                <span class="logo">Aurevo Dynamics</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-    <h2>Hybrid Zinc-Ion Energy Systems Without Lithium</h2>
-    <p>Battery-level energy. Capacitor-level power. Architecturally controlled safety.</p>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about section-panel">
-    <h2>What We Are Building</h2>
-    <p>
-        Aurevo Dynamics is developing Hybrid Zinc-Ion Capacitors (HZIC) that combine aqueous zinc battery chemistry with electronically controlled capacitor buffering.
-        Our architecture is designed to deliver high transient power while enforcing electrochemically safe zinc operation.
-        By integrating solvation-engineered gel electrolytes and active DC–DC charge control, we aim to enable safer, scalable alternatives to lithium-based systems.
-    </p>
-    </section>
-
-    <section class="problem section-panel">
-    <h2>The Problem</h2>
-    <p>
-        Lithium-ion systems dominate energy storage, but they face material volatility,
-        thermal runaway risks, and high-cost scaling challenges.
-        Zinc systems are safer and abundant — but suffer from dendrites,
-        poor high-rate stability, and limited cycle life.
-    </p>
-    <p>
-        Existing architectures do not adequately decouple transient power demand
-        from zinc electrochemistry.
-    </p>
-</section>
-    <section id="technology" class="technology section-panel">
-    <h2>Our Technology</h2>
-    <p>
-        Aurevo Dynamics develops Hybrid Zinc-Ion Capacitors (HZICs) that merge
-        battery-grade energy storage with capacitor-grade power delivery.
-        By combining zinc metal anodes, MnO₂-based cathodes, and EDLC buffering
-        under active electronic control, our architecture decouples high-power
-        transients from zinc electrochemistry.
-    </p>
-</section>
-
-<section class="innovation">
-    <h2>Core Innovation</h2>
-    <div class="innovation-grid">
-        <div class="card">
-            <h3>Solvation-Regulated Gel Electrolytes</h3>
-            <p>
-                A polymer-engineered gel electrolyte that modulates Zn²⁺ solvation, 
-                reduces dendrite formation, and improves cycle stability under controlled current densities.
-            </p>
-        </div>
-        <div class="card">
-            <h3>Active EDLC–Battery Decoupling</h3>
-            <p>
-                A DC–DC CC–CV power stage electronically enforces zinc-safe
-                operating limits while routing transient loads through EDLC
-                buffering.
-            </p>
-        </div>
-        <div class="card">
-            <h3>System-Level Safety</h3>
-            <p>
-                Multi-layer electrochemical, electronic, and thermal constraints
-                ensure intrinsic safety without reliance on extreme electrolytes
-                or rigid physical barriers.
-            </p>
-        </div>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-mark">A</span>
+        <span class="logo-text">Aurevo Dynamics</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#applications">Applications</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-</section>
+  </nav>
 
-<section class="architecture">
-    <h2>System Architecture</h2>
-    <p>
-        The HZIC platform integrates zinc cells, EDLC modules, and intelligent
-        power electronics into a modular, scalable system. Current partitioning
-        is enforced electronically rather than passively, enabling fast charging
-        and high-power delivery without zinc degradation.
-    </p>
-</section>
-<section class="development section-panel">
-    <h2>Development Stage</h2>
-    <p>
-        Aurevo Dynamics is currently in the pre-prototype engineering phase.
-        Core system architecture, electrolyte formulation strategy,
-        and charge-control electronics design have been completed at the documentation and modelling level.
-    </p>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
     <ul>
-        <li>Hybrid architecture defined</li>
-        <li>Electrolyte framework designed</li>
-        <li>Active current-control topology specified</li>
-        <li>Prototype fabrication roadmap prepared</li>
+      <li><a href="#technology">Technology</a></li>
+      <li><a href="#performance">Performance</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Get in touch</a></li>
     </ul>
-</section>
-<section class="roadmap section-panel">
-    <h2>Roadmap</h2>
-    <ul>
-        <li>2026 Q2 – Zinc symmetric cell validation</li>
-        <li>2026 Q3 – Integrated EDLC + Zn module build</li>
-        <li>2026 Q4 – Functional demonstrator testing</li>
-        <li>2027 – Pilot-scale manufacturability study</li>
-    </ul>
-</section>
-<section class="applications">
-    <h2>Applications</h2>
-    <ul>
-        <li>Micro-mobility and electric two-wheelers</li>
-        <li>Robotics and industrial actuators</li>
-        <li>UPS and telecom backup systems</li>
-        <li>Safe, high-power consumer energy storage</li>
-    </ul>
-</section>
+  </div>
 
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <h2>Our Team</h2>
-        <div class="team-members">
-            <div class="member">
-                <h3>Hitesh Kumaar K</h3>
-                <p>Founder | Systems Architecture</p>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">LITHIUM-FREE · AQUEOUS · ZERO THERMAL RUNAWAY</div>
+      <h1>Energy storage<br>without compromise.</h1>
+      <p class="hero-sub">Aurevo Dynamics is developing HZIC — a kinetically graded zinc hybrid capacitor architecture that delivers battery-level energy, capacitor-level power, and intrinsic safety from earth-abundant materials.</p>
+      <div class="hero-actions">
+        <a href="#technology" class="btn-primary">Explore the technology</a>
+        <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank" class="btn-ghost">Read the paper ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="cell-wrapper">
+        <div class="cell-label top-label">Current collector <span class="label-line"></span></div>
+
+        <!-- Animated HZIC cross-section -->
+        <div class="cell-body" id="cellBody">
+          <div class="cell-zone zone-collector top-collector">
+            <span class="zone-tag">Al/C · 15 µm</span>
+          </div>
+          <div class="cell-zone zone-a" id="zoneA">
+            <div class="zone-fill"></div>
+            <div class="zone-info">
+              <span class="zone-label">Zone A</span>
+              <span class="zone-name">EDLC Power Interface</span>
+              <span class="zone-time">τ = 8 s</span>
             </div>
-            <div class="member">
-                <h3>Sindhi Mathini I</h3>
-                <p>Co-Founder | Materials & Research</p>
+            <div class="pulse-dots" id="dotsA"></div>
+          </div>
+          <div class="cell-zone zone-b" id="zoneB">
+            <div class="zone-fill"></div>
+            <div class="zone-info">
+              <span class="zone-label">Zone B</span>
+              <span class="zone-name">Redistribution Engine</span>
+              <span class="zone-time">τ = 3.1 min</span>
             </div>
-            <div class="member">
-                <h3>Jeevan VP</h3>
-                <p>Power Electronics Lead</p>
+            <div class="pulse-dots" id="dotsB"></div>
+          </div>
+          <div class="cell-zone zone-c" id="zoneC">
+            <div class="zone-fill"></div>
+            <div class="zone-info">
+              <span class="zone-label">Zone C</span>
+              <span class="zone-name">Energy Reservoir</span>
+              <span class="zone-time">τ = 31.6 min</span>
             </div>
-            <div class="member">
-                <h3>Roshan J</h3>
-                <p>Social Media Manager</p>
+            <div class="microchannel-grid" id="microchannels"></div>
+            <div class="pulse-dots" id="dotsC"></div>
+          </div>
+          <div class="cell-zone zone-gel">
+            <div class="zone-fill"></div>
+            <div class="zone-info">
+              <span class="zone-label">Gel</span>
+              <span class="zone-name">PVA · 75 µm</span>
+              <span class="zone-time">13 mS/cm</span>
             </div>
+          </div>
+          <div class="cell-zone zone-anode" id="zoneAnode">
+            <div class="zone-fill"></div>
+            <div class="zone-info">
+              <span class="zone-label">Anode</span>
+              <span class="zone-name">Zn@Carbon Felt</span>
+              <span class="zone-time">6–8× area</span>
+            </div>
+            <div class="felt-fibers" id="fiberCanvas"></div>
+          </div>
+          <div class="cell-zone zone-collector bot-collector">
+            <span class="zone-tag">Al/C · 15 µm</span>
+          </div>
+
+          <!-- Cascade animation overlay -->
+          <div class="cascade-beam" id="cascadeBeam"></div>
         </div>
-        <p class="doc-link">Documentation: <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank">View PDF</a></p>
-    </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact</h2>
-        <p>
-            Email: <a href="mailto:aurevodynamics@gmail.com">aurevodynamics@gmail.com</a> | 
-            LinkedIn: <a href="https://www.linkedin.com/company/aurevodynamics" target="_blank">AurevoDynamics</a> | 
-            X: <a href="https://x.com/AurevoDynamics" target="_blank">AurevoDynamics</a>
-        </p>
-        <p style="margin-top:30px;">
-We are seeking early-stage capital and technical collaborators to support prototype development and validation.
-        </p>
+        <div class="cell-label bot-label"><span class="label-line"></span> Current collector</div>
 
-    </section>
+        <!-- Right-side stats -->
+        <div class="cell-stats">
+          <div class="stat-row" data-zone="a">
+            <div class="stat-dot amber"></div>
+            <div>
+              <div class="stat-val">30–60 s</div>
+              <div class="stat-desc">Operational readiness</div>
+            </div>
+          </div>
+          <div class="stat-row" data-zone="b">
+            <div class="stat-dot gold"></div>
+            <div>
+              <div class="stat-val">5–10 min</div>
+              <div class="stat-desc">Usable charge</div>
+            </div>
+          </div>
+          <div class="stat-row" data-zone="c">
+            <div class="stat-dot brown"></div>
+            <div>
+              <div class="stat-val">30–45 min</div>
+              <div class="stat-desc">Full equilibration</div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-dot teal"></div>
+            <div>
+              <div class="stat-val">3.9 V</div>
+              <div class="stat-desc">3S stack voltage</div>
+            </div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-dot navy"></div>
+            <div>
+              <div class="stat-val">3,000+</div>
+              <div class="stat-desc">Cycle life target</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Aurevo Dynamics. All Rights Reserved.</p>
-    </footer>
-    <meta name="description" content="Aurevo Dynamics develops Hybrid Zinc-Ion Capacitors (HZIC) combining zinc battery chemistry with capacitor-level power delivery under active electronic control.">
-<meta name="keywords" content="Aurevo Dynamics, Hybrid Zinc Ion Capacitor, HZIC, zinc battery startup, post lithium energy storage">
-<meta name="author" content="Aurevo Dynamics">
-<meta property="og:title" content="Aurevo Dynamics | Hybrid Zinc-Ion Energy Systems">
-<meta property="og:description" content="Developing lithium-free hybrid zinc-ion energy systems with active current control.">
-<meta property="og:type" content="website">
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">3.9 V</div>
+      <div class="stat-label">Stack voltage</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">58 Wh/L</div>
+      <div class="stat-label">Target energy density</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">30–45 min</div>
+      <div class="stat-label">Full charge time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3,000+</div>
+      <div class="stat-label">Cycle life target</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">Zero</div>
+      <div class="stat-label">Thermal runaway risk</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$0.22/Wh</div>
+      <div class="stat-label">Projected at scale</div>
+    </div>
+  </div>
 
+  <!-- PROBLEM -->
+  <section id="problem" class="section problem-section">
+    <div class="section-inner two-col">
+      <div class="col-text">
+        <div class="eyebrow-small">THE PROBLEM</div>
+        <h2>Lithium dominates. But it shouldn't have to.</h2>
+        <p>Lithium-ion cells power everything from phones to grid storage — but they carry real costs: thermal runaway risk, cobalt supply chains, degrading cycle economics, and hard limits on where they can safely be deployed.</p>
+        <p>Zinc is safe, abundant, and aqueous. But raw zinc systems fail fast: dendrite growth, poor high-rate stability, and sluggish charge redistribution. Prior hybrid approaches left critical gaps — cascade timescales of several hours, and energy density limited by thick collectors and inefficient scaffolds.</p>
+        <p class="highlight-line">Existing architectures don't adequately decouple transient power demand from zinc electrochemistry.</p>
+      </div>
+      <div class="col-visual">
+        <div class="comparison-cards">
+          <div class="comp-card bad">
+            <div class="comp-icon">⚡</div>
+            <div class="comp-title">Li-ion today</div>
+            <ul>
+              <li class="neg">Thermal runaway risk</li>
+              <li class="neg">Cobalt supply dependency</li>
+              <li class="neg">Fire suppression overhead</li>
+              <li class="pos">High energy density</li>
+            </ul>
+          </div>
+          <div class="comp-card neutral">
+            <div class="comp-icon">🔋</div>
+            <div class="comp-title">Raw zinc systems</div>
+            <ul>
+              <li class="pos">Intrinsically safe</li>
+              <li class="pos">Earth-abundant</li>
+              <li class="neg">Dendrite failure</li>
+              <li class="neg">Poor high-rate performance</li>
+            </ul>
+          </div>
+          <div class="comp-card good">
+            <div class="comp-icon">◈</div>
+            <div class="comp-title">Aurevo HZIC</div>
+            <ul>
+              <li class="pos">Zero thermal runaway</li>
+              <li class="pos">No lithium or cobalt</li>
+              <li class="pos">5-mechanism dendrite suppression</li>
+              <li class="pos">Sub-minute readiness</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology" class="section tech-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">THE ARCHITECTURE</div>
+      <h2>Four advances. One integrated system.</h2>
+      <p class="section-sub">BGC-X v2 resolves the fundamental limitations of prior zinc architectures through a set of tightly coupled engineering decisions — each addressing a specific transport, electronic, or degradation constraint.</p>
+
+      <div class="tech-grid">
+        <div class="tech-card" data-index="01">
+          <div class="tech-num">01</div>
+          <h3>Kinetically graded cathode</h3>
+          <p>A single 700 µm monolithic electrode encodes three kinetic zones through differential sedimentation during fabrication. Zone A (EDLC, 8 s), Zone B (pseudocapacitive, 3.1 min), and Zone C (intercalation, 31.6 min) operate simultaneously — not sequentially.</p>
+          <div class="tech-tag">700 µm · 3-zone cascade</div>
+        </div>
+        <div class="tech-card" data-index="02">
+          <div class="tech-num">02</div>
+          <h3>VGCF electronic backbone</h3>
+          <p>Vapor-grown carbon fibers (axial conductivity >1000 S/cm, aspect ratio 50–200) provide continuous through-thickness electronic pathways across Zone C. This reduces electronic resistance 6× — from 15 Ω·cm² to 2.5 Ω·cm² — preventing Zone C from becoming rate-limited by electron transport.</p>
+          <div class="tech-tag">6× resistance reduction</div>
+        </div>
+        <div class="tech-card" data-index="03">
+          <div class="tech-num">03</div>
+          <h3>Microchannel ionic transport</h3>
+          <p>Sacrificial starch microparticles (10–30 µm) burned out at 250°C leave ~100 vertical ionic highways per mm². No active material is more than 50 µm from a direct channel to the electrolyte — reducing effective diffusion length 4× and compressing Zone C charge time from 87 min to 32 min.</p>
+          <div class="tech-tag">4× diffusion improvement</div>
+        </div>
+        <div class="tech-card" data-index="04">
+          <div class="tech-num">04</div>
+          <h3>Ternary PVA gel electrolyte</h3>
+          <p>PVA structural backbone + citric acid covalent crosslinker + glycerol humectant. The ternary combination achieves 13 mS/cm ionic conductivity, 50 kPa mechanical modulus for dendrite resistance, and water retention up to 60°C — eliminating the dehydration failure mode of prior two-component gels.</p>
+          <div class="tech-tag">13 mS/cm · stable to 60°C</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section cascade-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">THE PRINCIPLE</div>
+      <h2>A cascade encoded in a single electrode.</h2>
+      <p class="section-sub">The HZIC doesn't switch between modes. All three zones are always active — each responding at its natural kinetic timescale. The result is instantaneous readiness, fast usable charge, and deep sustained energy, from one monolithic structure.</p>
+
+      <div class="cascade-timeline">
+        <div class="timeline-stage active-stage" id="stage1">
+          <div class="stage-time">0 — 60 s</div>
+          <div class="stage-bar">
+            <div class="stage-fill amber-fill" style="width: 100%"></div>
+          </div>
+          <div class="stage-name">Zone A saturates</div>
+          <div class="stage-desc">EDLC layer (AC + GNP) accepts current instantaneously. Operational readiness established. 525 mF/cm².</div>
+        </div>
+        <div class="timeline-stage" id="stage2">
+          <div class="stage-time">1 — 10 min</div>
+          <div class="stage-bar">
+            <div class="stage-fill gold-fill" style="width: 100%"></div>
+          </div>
+          <div class="stage-name">Zone B mediates</div>
+          <div class="stage-desc">Amorphous MnO₂ pseudocapacitive layer redistributes charge. Kinetic bridge couples Zone A output to Zone C input. 1.66 F/cm².</div>
+        </div>
+        <div class="timeline-stage" id="stage3">
+          <div class="stage-time">10 — 45 min</div>
+          <div class="stage-bar">
+            <div class="stage-fill brown-fill" style="width: 100%"></div>
+          </div>
+          <div class="stage-name">Zone C equilibrates</div>
+          <div class="stage-desc">α-MnO₂ Hollandite intercalation fills the deep energy reservoir via microchannel-assisted Zn²⁺ transport. 2.52 mAh/cm².</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section id="performance" class="section perf-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">PERFORMANCE</div>
+      <h2>Honest numbers. Real constraints.</h2>
+      <p class="section-sub">The 7–8× energy density gap versus lithium-ion is real and irreducible — it's a consequence of the aqueous voltage ceiling, not a design deficiency. HZIC targets applications where safety, cycle life, and cost dominate.</p>
+
+      <div class="perf-table-wrap">
+        <table class="perf-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>HZIC MVP</th>
+              <th>HZIC Target</th>
+              <th>Li-ion 18650</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Volumetric energy density</td>
+              <td class="highlight-cell">29 Wh/L</td>
+              <td>58+ Wh/L</td>
+              <td class="dim-cell">235 Wh/L*</td>
+            </tr>
+            <tr>
+              <td>Stack voltage</td>
+              <td class="highlight-cell">3.9 V</td>
+              <td>3.9 V</td>
+              <td class="dim-cell">3.6 V</td>
+            </tr>
+            <tr>
+              <td>Full charge time</td>
+              <td class="highlight-cell">30–45 min</td>
+              <td>20–30 min</td>
+              <td class="dim-cell">60–90 min typical</td>
+            </tr>
+            <tr>
+              <td>Operational readiness</td>
+              <td class="highlight-cell">30–60 s</td>
+              <td>15–30 s</td>
+              <td class="dim-cell">N/A</td>
+            </tr>
+            <tr>
+              <td>Cycle life</td>
+              <td class="highlight-cell">3,000 target</td>
+              <td>5,000+</td>
+              <td class="dim-cell">300–500 typical</td>
+            </tr>
+            <tr>
+              <td>Thermal runaway risk</td>
+              <td class="highlight-cell good">Zero</td>
+              <td class="good">Zero</td>
+              <td class="dim-cell bad">Significant</td>
+            </tr>
+            <tr>
+              <td>Materials cost (at scale)</td>
+              <td class="highlight-cell">$0.87/Wh</td>
+              <td>$0.22/Wh</td>
+              <td class="dim-cell">$0.10–0.15/Wh</td>
+            </tr>
+            <tr>
+              <td>Cobalt / Lithium</td>
+              <td class="highlight-cell good">None</td>
+              <td class="good">None</td>
+              <td class="dim-cell bad">Required</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-footnote">* Energy density gap versus Li-ion is a direct consequence of the aqueous voltage ceiling (1.3 V vs 3.6 V) and cannot be eliminated by materials selection. HZIC targets applications where this gap is acceptable.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section id="applications" class="section apps-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">APPLICATIONS</div>
+      <h2>Built for where safety and cycle life decide.</h2>
+
+      <div class="apps-grid">
+        <div class="app-card">
+          <div class="app-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Robotics & automation</h3>
+          <p>Zone A/B absorbs actuator power bursts while Zone C sustains operation. Self-completion cascade recharges during idle — no charger needed. Non-flammability eliminates indoor fire ratings.</p>
+        </div>
+        <div class="app-card">
+          <div class="app-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+          </div>
+          <h3>Micro-mobility</h3>
+          <p>Sub-minute partial charge at any point cascades into useful range. 3.9 V nominal is compatible with existing low-voltage drive electronics. Zero fire risk simplifies regulatory approval.</p>
+        </div>
+        <div class="app-card">
+          <div class="app-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+          </div>
+          <h3>UPS & telecom backup</h3>
+          <p>3,000+ cycle life vs. under 1,000 for standard Zn/MnO₂. Zero fire risk eliminates facility overhead and insurance costs that lithium-ion installations require.</p>
+        </div>
+        <div class="app-card">
+          <div class="app-icon">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Industrial IoT buffering</h3>
+          <p>Zone A's 8-second response captures burst energy from solenoid actuation, motor starts, and sensor polling events that would otherwise be wasted or destabilise the supply.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section roadmap-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">ROADMAP</div>
+      <h2>Development stage.</h2>
+      <p class="section-sub">Core architecture, electrolyte formulation, and charge-control topology are fully specified. Prototype fabrication is the next milestone.</p>
+
+      <div class="roadmap-track">
+        <div class="roadmap-item done">
+          <div class="rm-dot"></div>
+          <div class="rm-content">
+            <div class="rm-date">Completed</div>
+            <div class="rm-title">Architecture & documentation</div>
+            <div class="rm-desc">Full BGC-X v2 specification, transport models, fabrication protocol, electrolyte formulation, and charge strategy defined.</div>
+          </div>
+        </div>
+        <div class="roadmap-item active">
+          <div class="rm-dot"></div>
+          <div class="rm-content">
+            <div class="rm-date">2026 Q2</div>
+            <div class="rm-title">Zinc symmetric cell validation</div>
+            <div class="rm-desc">Gradient quality Gq ≥ 3.5, microchannel formation confirmed by micro-CT, VGCF resistance target verified.</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="rm-dot"></div>
+          <div class="rm-content">
+            <div class="rm-date">2026 Q3</div>
+            <div class="rm-title">Integrated HZIC module build</div>
+            <div class="rm-desc">Full single-cell prototype with cascade redistribution validation and pulse-charge protocol testing.</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="rm-dot"></div>
+          <div class="rm-content">
+            <div class="rm-date">2026 Q4</div>
+            <div class="rm-title">Functional demonstrator</div>
+            <div class="rm-desc">3S bipolar 5×5 cm stack. Confirmed energy density, cycle life at 100 cycles, and performance benchmarks.</div>
+          </div>
+        </div>
+        <div class="roadmap-item">
+          <div class="rm-dot"></div>
+          <div class="rm-content">
+            <div class="rm-date">2027</div>
+            <div class="rm-title">Pilot-scale manufacturability</div>
+            <div class="rm-desc">Roll-to-roll compatibility study. 3,000-cycle validation. Energy density optimization to 58+ Wh/L target.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="section team-section">
+    <div class="section-inner">
+      <div class="eyebrow-small">THE TEAM</div>
+      <h2>Built in Chennai.</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-initial">HK</div>
+          <div class="team-info">
+            <h3>Hitesh Kumaar K</h3>
+            <p>Founder · Systems Architecture</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-initial">SM</div>
+          <div class="team-info">
+            <h3>Sindhi Mathini I</h3>
+            <p>Co-Founder · Materials & Research</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-initial">JV</div>
+          <div class="team-info">
+            <h3>Jeevan VP</h3>
+            <p>Power Electronics Lead</p>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-initial">RJ</div>
+          <div class="team-info">
+            <h3>Roshan J</h3>
+            <p>Social Media Manager</p>
+          </div>
+        </div>
+      </div>
+      <div class="team-doc">
+        <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank" class="btn-outline">Read the technical paper ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="section-inner contact-inner">
+      <div class="contact-left">
+        <div class="eyebrow-small">CONTACT</div>
+        <h2>Let's build the post-lithium future.</h2>
+        <p>We are seeking early-stage capital and technical collaborators to support prototype development and validation. If you work in deep-tech investing, energy materials, or applications in robotics, micro-mobility, or industrial storage — we want to talk.</p>
+        <a href="mailto:aurevodynamics@gmail.com" class="btn-primary">aurevodynamics@gmail.com</a>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:aurevodynamics@gmail.com" class="contact-link">
+          <span class="cl-icon">✉</span>
+          <span>aurevodynamics@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/company/aurevodynamics" target="_blank" class="contact-link">
+          <span class="cl-icon">in</span>
+          <span>linkedin.com/company/aurevodynamics</span>
+        </a>
+        <a href="https://x.com/AurevoDynamics" target="_blank" class="contact-link">
+          <span class="cl-icon">𝕏</span>
+          <span>@AurevoDynamics</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-mark">A</span>
+        <span>Aurevo Dynamics</span>
+      </div>
+      <div class="footer-tagline">Kinetically graded zinc hybrid energy. Chennai, India.</div>
+      <div class="footer-copy">© 2026 Aurevo Dynamics. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
-</html> 
+</html>
