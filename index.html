@@ -1,559 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurevo Dynamics | Hybrid Zinc-Ion Energy Systems</title>
-  <meta name="description" content="Aurevo Dynamics develops HZIC — kinetically graded bipolar zinc hybrid capacitors with sub-minute operational readiness, 3000+ cycle life, and zero thermal runaway risk.">
-  <meta property="og:title" content="Aurevo Dynamics | Hybrid Zinc-Ion Energy Systems">
-  <meta property="og:description" content="Battery-level energy. Capacitor-level power. Architecturally controlled safety. No lithium.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurevo Dynamics — HZIC Kinetically Graded Zinc Hybrid Capacitor</title>
+<meta name="description" content="Aurevo Dynamics is developing HZIC, a kinetically graded zinc hybrid capacitor delivering battery-level energy, capacitor-level power, and zero thermal runaway risk from earth-abundant materials.">
+<meta property="og:title" content="Aurevo Dynamics — HZIC">
+<meta property="og:description" content="Energy storage without compromise. Lithium-free. Aqueous. Zero thermal runaway.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <div class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <span class="logo-mark">A</span>
-        <span class="logo-text">Aurevo Dynamics</span>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#technology">Technology</a></li>
-        <li><a href="#performance">Performance</a></li>
-        <li><a href="#applications">Applications</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#contact" class="nav-cta">Get in touch</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+<!-- running trace line, present always, redraws per-section via JS -->
+<div class="nav-trace" aria-hidden="true"><svg viewBox="0 0 1200 2" preserveAspectRatio="none"><line x1="0" y1="1" x2="1200" y2="1"/></svg></div>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul>
-      <li><a href="#technology">Technology</a></li>
-      <li><a href="#performance">Performance</a></li>
-      <li><a href="#applications">Applications</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Get in touch</a></li>
-    </ul>
+<header id="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">
+      <span class="mark-glyph">⏚</span>
+      <span class="mark-text">AUREVO&nbsp;DYNAMICS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#technology">Technology</a>
+      <a href="#performance">Performance</a>
+      <a href="#applications">Applications</a>
+      <a href="#team">Team</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#technology">01 — Technology</a>
+  <a href="#performance">02 — Performance</a>
+  <a href="#applications">03 — Applications</a>
+  <a href="#roadmap-section">04 — Roadmap</a>
+  <a href="#team">05 — Team</a>
+  <a href="#contact">06 — Get in touch</a>
+</div>
+
+<main id="top">
+
+  <!-- ============ HERO — the diagram IS the hero ============ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="margin-col">
+      <div class="margin-tag">FIG. 1</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Cross-section, kinetically graded bipolar electrode. Hover or tap a zone to trace its readout through the page.</p>
+      <div class="margin-coords" id="cursorCoords">X 000.0 · Y 000.0</div>
+    </div>
+
+    <div class="content-col hero-content">
+      <div class="hero-head">
+        <div class="hero-tags">
+          <span class="tag">LITHIUM-FREE</span><span class="tag-sep">/</span>
+          <span class="tag">AQUEOUS</span><span class="tag-sep">/</span>
+          <span class="tag">ZERO THERMAL RUNAWAY</span>
+        </div>
+        <h1 class="hero-title">Energy storage<br>without&nbsp;compromise.</h1>
+        <p class="hero-sub">Aurevo Dynamics is developing <strong>HZIC</strong> — a kinetically graded zinc hybrid capacitor architecture delivering battery-level energy, capacitor-level power, and intrinsic safety from earth-abundant materials.</p>
+        <div class="hero-actions">
+          <a href="#technology" class="btn-primary">Explore the technology</a>
+          <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank" rel="noopener" class="btn-ghost">Read the paper <span class="arrow">↗</span></a>
+        </div>
+      </div>
+
+      <!-- THE DIAGRAM: interactive electrode cross-section -->
+      <figure class="electrode-fig" id="electrodeFig">
+        <figcaption class="fig-caption">
+          <span class="fig-number">FIG. 1 —</span> Bipolar cell stack, current collector to current collector. Click a zone.
+        </figcaption>
+
+        <div class="electrode-diagram" id="electrodeDiagram" role="group" aria-label="Interactive electrode cross section, seven layers">
+
+          <div class="layer collector" data-layer="collector-top">
+            <span class="layer-tick"></span>
+            <span class="layer-label">Current collector <em>Al/C · 15 µm</em></span>
+          </div>
+
+          <button class="layer zone" data-zone="a" id="zoneBtnA" aria-pressed="false">
+            <span class="layer-tick zone-tick-a"></span>
+            <span class="layer-label">
+              <span class="zone-name">Zone A — EDLC Power Interface</span>
+              <em>τ = 8 s · activated carbon + graphene nanoplatelet</em>
+            </span>
+            <span class="layer-readout">τ 8s</span>
+          </button>
+
+          <button class="layer zone" data-zone="b" id="zoneBtnB" aria-pressed="false">
+            <span class="layer-tick zone-tick-b"></span>
+            <span class="layer-label">
+              <span class="zone-name">Zone B — Redistribution Engine</span>
+              <em>τ = 3.1 min · amorphous MnO₂ pseudocapacitive</em>
+            </span>
+            <span class="layer-readout">τ 3.1m</span>
+          </button>
+
+          <button class="layer zone" data-zone="c" id="zoneBtnC" aria-pressed="false">
+            <span class="layer-tick zone-tick-c"></span>
+            <span class="layer-label">
+              <span class="zone-name">Zone C — Energy Reservoir</span>
+              <em>τ = 31.6 min · α-MnO₂ Hollandite intercalation</em>
+            </span>
+            <span class="layer-readout">τ 31.6m</span>
+          </button>
+
+          <div class="layer electrolyte" data-layer="gel">
+            <span class="layer-tick"></span>
+            <span class="layer-label">Gel electrolyte <em>PVA · 75 µm · 13 mS/cm</em></span>
+          </div>
+
+          <div class="layer anode" data-layer="anode">
+            <span class="layer-tick"></span>
+            <span class="layer-label">Anode <em>Zn@Carbon Felt · 6–8× area</em></span>
+          </div>
+
+          <div class="layer collector" data-layer="collector-bot">
+            <span class="layer-tick"></span>
+            <span class="layer-label">Current collector <em>Al/C · 15 µm</em></span>
+          </div>
+
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ TRACE 1 — voltage readiness curve ============ -->
+  <div class="trace-divider" data-trace="readiness" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" d="M0,70 C 60,70 90,68 120,40 C 150,18 170,15 220,14 C 320,13 380,18 460,28 C 560,40 640,44 760,42 C 880,40 980,38 1200,36" />
+    </svg>
   </div>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">LITHIUM-FREE · AQUEOUS · ZERO THERMAL RUNAWAY</div>
-      <h1>Energy storage<br>without compromise.</h1>
-      <p class="hero-sub">Aurevo Dynamics is developing HZIC — a kinetically graded zinc hybrid capacitor architecture that delivers battery-level energy, capacitor-level power, and intrinsic safety from earth-abundant materials.</p>
-      <div class="hero-actions">
-        <a href="#technology" class="btn-primary">Explore the technology</a>
-        <a href="https://drive.google.com/file/d/1BPWQDb_B-Urzun7yZhxd15Gbmnsxr2ap/view?usp=sharing" target="_blank" class="btn-ghost">Read the paper ↗</a>
-      </div>
+  <!-- ============ TOP-LINE STATS ============ -->
+  <section class="stats-strip" aria-label="Key performance figures">
+    <div class="margin-col">
+      <div class="margin-tag">FIG. 2</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Top-line figures, current MVP and stack target.</p>
     </div>
-
-    <div class="hero-visual">
-      <div class="cell-wrapper">
-        <div class="cell-label top-label">Current collector <span class="label-line"></span></div>
-
-        <!-- Animated HZIC cross-section -->
-        <div class="cell-body" id="cellBody">
-          <div class="cell-zone zone-collector top-collector">
-            <span class="zone-tag">Al/C · 15 µm</span>
-          </div>
-          <div class="cell-zone zone-a" id="zoneA">
-            <div class="zone-fill"></div>
-            <div class="zone-info">
-              <span class="zone-label">Zone A</span>
-              <span class="zone-name">EDLC Power Interface</span>
-              <span class="zone-time">τ = 8 s</span>
-            </div>
-            <div class="pulse-dots" id="dotsA"></div>
-          </div>
-          <div class="cell-zone zone-b" id="zoneB">
-            <div class="zone-fill"></div>
-            <div class="zone-info">
-              <span class="zone-label">Zone B</span>
-              <span class="zone-name">Redistribution Engine</span>
-              <span class="zone-time">τ = 3.1 min</span>
-            </div>
-            <div class="pulse-dots" id="dotsB"></div>
-          </div>
-          <div class="cell-zone zone-c" id="zoneC">
-            <div class="zone-fill"></div>
-            <div class="zone-info">
-              <span class="zone-label">Zone C</span>
-              <span class="zone-name">Energy Reservoir</span>
-              <span class="zone-time">τ = 31.6 min</span>
-            </div>
-            <div class="microchannel-grid" id="microchannels"></div>
-            <div class="pulse-dots" id="dotsC"></div>
-          </div>
-          <div class="cell-zone zone-gel">
-            <div class="zone-fill"></div>
-            <div class="zone-info">
-              <span class="zone-label">Gel</span>
-              <span class="zone-name">PVA · 75 µm</span>
-              <span class="zone-time">13 mS/cm</span>
-            </div>
-          </div>
-          <div class="cell-zone zone-anode" id="zoneAnode">
-            <div class="zone-fill"></div>
-            <div class="zone-info">
-              <span class="zone-label">Anode</span>
-              <span class="zone-name">Zn@Carbon Felt</span>
-              <span class="zone-time">6–8× area</span>
-            </div>
-            <div class="felt-fibers" id="fiberCanvas"></div>
-          </div>
-          <div class="cell-zone zone-collector bot-collector">
-            <span class="zone-tag">Al/C · 15 µm</span>
-          </div>
-
-          <!-- Cascade animation overlay -->
-          <div class="cascade-beam" id="cascadeBeam"></div>
+    <div class="content-col">
+      <div class="stat-grid">
+        <div class="stat" data-zone="a">
+          <span class="stat-num">30–60<small>s</small></span>
+          <span class="stat-cap">Operational readiness</span>
         </div>
-
-        <div class="cell-label bot-label"><span class="label-line"></span> Current collector</div>
-
-        <!-- Right-side stats -->
-        <div class="cell-stats">
-          <div class="stat-row" data-zone="a">
-            <div class="stat-dot amber"></div>
-            <div>
-              <div class="stat-val">30–60 s</div>
-              <div class="stat-desc">Operational readiness</div>
-            </div>
-          </div>
-          <div class="stat-row" data-zone="b">
-            <div class="stat-dot gold"></div>
-            <div>
-              <div class="stat-val">5–10 min</div>
-              <div class="stat-desc">Usable charge</div>
-            </div>
-          </div>
-          <div class="stat-row" data-zone="c">
-            <div class="stat-dot brown"></div>
-            <div>
-              <div class="stat-val">30–45 min</div>
-              <div class="stat-desc">Full equilibration</div>
-            </div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-dot teal"></div>
-            <div>
-              <div class="stat-val">3.9 V</div>
-              <div class="stat-desc">3S stack voltage</div>
-            </div>
-          </div>
-          <div class="stat-row">
-            <div class="stat-dot navy"></div>
-            <div>
-              <div class="stat-val">3,000+</div>
-              <div class="stat-desc">Cycle life target</div>
-            </div>
-          </div>
+        <div class="stat" data-zone="b">
+          <span class="stat-num">5–10<small>min</small></span>
+          <span class="stat-cap">Usable charge</span>
+        </div>
+        <div class="stat" data-zone="c">
+          <span class="stat-num">30–45<small>min</small></span>
+          <span class="stat-cap">Full equilibration</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3.9<small>V</small></span>
+          <span class="stat-cap">Stack voltage</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3,000<small>+</small></span>
+          <span class="stat-cap">Cycle life target</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">58<small>Wh/L</small></span>
+          <span class="stat-cap">Target energy density</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">$0.22<small>/Wh</small></span>
+          <span class="stat-cap">Projected at scale</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">Zero</span>
+          <span class="stat-cap">Thermal runaway risk</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat-item">
-      <div class="stat-number">3.9 V</div>
-      <div class="stat-label">Stack voltage</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">58 Wh/L</div>
-      <div class="stat-label">Target energy density</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">30–45 min</div>
-      <div class="stat-label">Full charge time</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">3,000+</div>
-      <div class="stat-label">Cycle life target</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">Zero</div>
-      <div class="stat-label">Thermal runaway risk</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">$0.22/Wh</div>
-      <div class="stat-label">Projected at scale</div>
-    </div>
+  <!-- ============ ROADMAP — surfaced early per brief #6 ============ -->
+  <div class="trace-divider" data-trace="roadmap" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path trace-step" d="M0,70 L150,70 L150,55 L320,55 L320,40 L520,40 L520,26 L760,26 L760,14 L1200,14" />
+    </svg>
   </div>
 
-  <!-- PROBLEM -->
-  <section id="problem" class="section problem-section">
-    <div class="section-inner two-col">
-      <div class="col-text">
-        <div class="eyebrow-small">THE PROBLEM</div>
+  <section class="roadmap-section" id="roadmap-section" aria-label="Development roadmap">
+    <div class="margin-col">
+      <div class="margin-tag">FIG. 3</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Stage progress, present day marked. Updated quarterly.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">CURRENT STAGE</span>
+        <h2>We are early. Here is exactly how early.</h2>
+        <p class="lede">Core architecture, electrolyte formulation, and charge-control topology are fully specified. Prototype fabrication is the next milestone — tracked openly below.</p>
+      </div>
+
+      <div class="roadmap-instrument" id="roadmapInstrument">
+        <div class="rm-track-line" aria-hidden="true"></div>
+        <div class="rm-step done">
+          <span class="rm-marker" aria-hidden="true"></span>
+          <span class="rm-date">Completed</span>
+          <span class="rm-title">Architecture &amp; documentation</span>
+          <span class="rm-desc">Full specification, transport models, fabrication protocol, electrolyte formulation, charge strategy.</span>
+        </div>
+        <div class="rm-step now">
+          <span class="rm-marker" aria-hidden="true"></span>
+          <span class="rm-date">2026 Q2 — now</span>
+          <span class="rm-title">Zinc symmetric cell validation</span>
+          <span class="rm-desc">Gradient quality G<sub>q</sub> ≥ 3.5 <em class="plain">— a measured score for how cleanly the three zones separated</em>, confirmed by micro-CT scan.</span>
+        </div>
+        <div class="rm-step">
+          <span class="rm-marker" aria-hidden="true"></span>
+          <span class="rm-date">2026 Q3</span>
+          <span class="rm-title">Integrated HZIC module build</span>
+          <span class="rm-desc">Full single-cell prototype, cascade redistribution validation, pulse-charge protocol testing.</span>
+        </div>
+        <div class="rm-step">
+          <span class="rm-marker" aria-hidden="true"></span>
+          <span class="rm-date">2026 Q4</span>
+          <span class="rm-title">Functional demonstrator</span>
+          <span class="rm-desc">3S bipolar 5×5 cm stack. Confirmed energy density and cycle life at 100 cycles.</span>
+        </div>
+        <div class="rm-step">
+          <span class="rm-marker" aria-hidden="true"></span>
+          <span class="rm-date">2027</span>
+          <span class="rm-title">Pilot-scale manufacturability</span>
+          <span class="rm-desc">Roll-to-roll compatibility study. 3,000-cycle validation. Energy density optimization to 58+ Wh/L.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <div class="trace-divider" data-trace="problem" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" d="M0,20 C100,20 140,60 200,60 C 260,60 300,25 360,25 C 460,25 500,72 600,72 C 700,72 760,18 880,18 C 980,18 1040,50 1200,50" />
+    </svg>
+  </div>
+
+  <section class="problem-section" id="problem" aria-label="The problem">
+    <div class="margin-col">
+      <div class="margin-tag">§ 1</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Two existing approaches, and where each fails.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">THE PROBLEM</span>
         <h2>Lithium dominates. But it shouldn't have to.</h2>
-        <p>Lithium-ion cells power everything from phones to grid storage — but they carry real costs: thermal runaway risk, cobalt supply chains, degrading cycle economics, and hard limits on where they can safely be deployed.</p>
-        <p>Zinc is safe, abundant, and aqueous. But raw zinc systems fail fast: dendrite growth, poor high-rate stability, and sluggish charge redistribution. Prior hybrid approaches left critical gaps — cascade timescales of several hours, and energy density limited by thick collectors and inefficient scaffolds.</p>
-        <p class="highlight-line">Existing architectures don't adequately decouple transient power demand from zinc electrochemistry.</p>
       </div>
-      <div class="col-visual">
-        <div class="comparison-cards">
-          <div class="comp-card bad">
-            <div class="comp-icon">⚡</div>
-            <div class="comp-title">Li-ion today</div>
-            <ul>
-              <li class="neg">Thermal runaway risk</li>
-              <li class="neg">Cobalt supply dependency</li>
-              <li class="neg">Fire suppression overhead</li>
-              <li class="pos">High energy density</li>
-            </ul>
-          </div>
-          <div class="comp-card neutral">
-            <div class="comp-icon">🔋</div>
-            <div class="comp-title">Raw zinc systems</div>
-            <ul>
-              <li class="pos">Intrinsically safe</li>
-              <li class="pos">Earth-abundant</li>
-              <li class="neg">Dendrite failure</li>
-              <li class="neg">Poor high-rate performance</li>
-            </ul>
-          </div>
-          <div class="comp-card good">
-            <div class="comp-icon">◈</div>
-            <div class="comp-title">Aurevo HZIC</div>
-            <ul>
-              <li class="pos">Zero thermal runaway</li>
-              <li class="pos">No lithium or cobalt</li>
-              <li class="pos">5-mechanism dendrite suppression</li>
-              <li class="pos">Sub-minute readiness</li>
-            </ul>
-          </div>
+      <div class="problem-grid">
+        <div class="problem-text">
+          <p>Lithium-ion cells power everything from phones to grid storage — but they carry real costs: thermal runaway risk, cobalt supply chains, degrading cycle economics, and hard limits on where they can safely be deployed.</p>
+          <p>Zinc is safe, abundant, and aqueous. But raw zinc systems fail fast: dendrite growth, poor high-rate stability, and sluggish charge redistribution. Prior hybrid approaches left critical gaps — cascade timescales of several hours, energy density limited by thick collectors and inefficient scaffolds.</p>
+          <p class="highlight">Existing architectures don't adequately decouple transient power demand from zinc electrochemistry.</p>
         </div>
+
+        <table class="measure-table" aria-label="Comparison of energy storage approaches">
+          <thead>
+            <tr><th scope="col">Approach</th><th scope="col">Strengths</th><th scope="col">Failure modes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mt-glyph" data-glyph="li">Li-ion<br><span class="plain">today's standard</span></td>
+              <td>High energy density</td>
+              <td class="neg">Thermal runaway · cobalt supply dependency · fire-suppression overhead</td>
+            </tr>
+            <tr>
+              <td class="mt-glyph" data-glyph="zn">Raw zinc<br><span class="plain">aqueous, no hybrid layer</span></td>
+              <td>Intrinsically safe · earth-abundant</td>
+              <td class="neg">Dendrite failure · poor high-rate performance</td>
+            </tr>
+            <tr class="mt-row-good">
+              <td class="mt-glyph" data-glyph="hzic">Aurevo HZIC<br><span class="plain">kinetically graded hybrid</span></td>
+              <td class="pos">Zero thermal runaway · no lithium or cobalt · 5-mechanism dendrite suppression</td>
+              <td>Sub-minute readiness only<sup>†</sup></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="table-fn"><sup>†</sup> Listed for parallel structure with the rows above — readiness on this timescale is the design intent, not a limitation.</p>
       </div>
     </div>
   </section>
 
-  <!-- TECHNOLOGY -->
-  <section id="technology" class="section tech-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">THE ARCHITECTURE</div>
-      <h2>Four advances. One integrated system.</h2>
-      <p class="section-sub">BGC-X v2 resolves the fundamental limitations of prior zinc architectures through a set of tightly coupled engineering decisions — each addressing a specific transport, electronic, or degradation constraint.</p>
+  <!-- ============ TECHNOLOGY — four advances, NOT numbered as sequence ============ -->
+  <div class="trace-divider" data-trace="tech" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path trace-step" d="M0,60 L260,60 L260,30 L560,30 L560,55 L860,55 L860,18 L1200,18" />
+    </svg>
+  </div>
 
-      <div class="tech-grid">
-        <div class="tech-card" data-index="01">
-          <div class="tech-num">01</div>
+  <section class="tech-section" id="technology" aria-label="The architecture">
+    <div class="margin-col">
+      <div class="margin-tag">§ 2</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Four parallel engineering decisions. No order implied — all operate together, always.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">THE ARCHITECTURE</span>
+        <h2>Four advances. One integrated system.</h2>
+        <p class="lede">Each addresses a specific transport, electronic, or degradation constraint. None functions as a step before or after another — they are concurrent properties of one structure.</p>
+      </div>
+
+      <div class="advance-grid">
+        <div class="advance-card" data-group="structure">
+          <span class="advance-kicker">STRUCTURE</span>
           <h3>Kinetically graded cathode</h3>
-          <p>A single 700 µm monolithic electrode encodes three kinetic zones through differential sedimentation during fabrication. Zone A (EDLC, 8 s), Zone B (pseudocapacitive, 3.1 min), and Zone C (intercalation, 31.6 min) operate simultaneously — not sequentially.</p>
-          <div class="tech-tag">700 µm · 3-zone cascade</div>
+          <p>A single 700 µm monolithic electrode encodes three kinetic zones through differential sedimentation during fabrication <span class="plain">— the zones settle into layers by density during manufacturing, no later assembly step required</span>. Zone A, B, and C operate simultaneously, not sequentially.</p>
+          <span class="advance-tag">700 µm · 3-zone cascade</span>
         </div>
-        <div class="tech-card" data-index="02">
-          <div class="tech-num">02</div>
+        <div class="advance-card" data-group="structure">
+          <span class="advance-kicker">CONDUCTIVITY</span>
           <h3>VGCF electronic backbone</h3>
-          <p>Vapor-grown carbon fibers (axial conductivity >1000 S/cm, aspect ratio 50–200) provide continuous through-thickness electronic pathways across Zone C. This reduces electronic resistance 6× — from 15 Ω·cm² to 2.5 Ω·cm² — preventing Zone C from becoming rate-limited by electron transport.</p>
-          <div class="tech-tag">6× resistance reduction</div>
+          <p><strong>VGCF</strong> <span class="plain">— vapor-grown carbon fibers, a thread-like conductive carbon</span> (axial conductivity &gt;1000 S/cm, aspect ratio 50–200) thread continuous electronic pathways through Zone C. This cuts electronic resistance 6× — from 15 to 2.5 Ω·cm² — so Zone C's output isn't bottlenecked by electron transport.</p>
+          <span class="advance-tag">6× resistance reduction</span>
         </div>
-        <div class="tech-card" data-index="03">
-          <div class="tech-num">03</div>
+        <div class="advance-card" data-group="transport">
+          <span class="advance-kicker">TRANSPORT</span>
           <h3>Microchannel ionic transport</h3>
-          <p>Sacrificial starch microparticles (10–30 µm) burned out at 250°C leave ~100 vertical ionic highways per mm². No active material is more than 50 µm from a direct channel to the electrolyte — reducing effective diffusion length 4× and compressing Zone C charge time from 87 min to 32 min.</p>
-          <div class="tech-tag">4× diffusion improvement</div>
+          <p>Sacrificial starch microparticles (10–30 µm) are burned out at 250°C, leaving ~100 vertical ionic channels per mm² <span class="plain">— literal pores that let ions travel straight through instead of around</span>. No active material sits more than 50 µm from a channel, a 4× diffusion improvement that compresses Zone C charge time from 87 min to 32 min.</p>
+          <span class="advance-tag">4× diffusion improvement</span>
         </div>
-        <div class="tech-card" data-index="04">
-          <div class="tech-num">04</div>
+        <div class="advance-card" data-group="transport">
+          <span class="advance-kicker">ELECTROLYTE</span>
           <h3>Ternary PVA gel electrolyte</h3>
-          <p>PVA structural backbone + citric acid covalent crosslinker + glycerol humectant. The ternary combination achieves 13 mS/cm ionic conductivity, 50 kPa mechanical modulus for dendrite resistance, and water retention up to 60°C — eliminating the dehydration failure mode of prior two-component gels.</p>
-          <div class="tech-tag">13 mS/cm · stable to 60°C</div>
+          <p>PVA structural backbone, citric acid crosslinker, and glycerol humectant <span class="plain">— a moisture-retaining additive that keeps the gel from drying out</span>. Together: 13 mS/cm ionic conductivity, 50 kPa mechanical modulus for dendrite resistance, stability to 60°C.</p>
+          <span class="advance-tag">13 mS/cm · stable to 60°C</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section cascade-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">THE PRINCIPLE</div>
-      <h2>A cascade encoded in a single electrode.</h2>
-      <p class="section-sub">The HZIC doesn't switch between modes. All three zones are always active — each responding at its natural kinetic timescale. The result is instantaneous readiness, fast usable charge, and deep sustained energy, from one monolithic structure.</p>
+  <!-- ============ CASCADE — the real diagram, connected to hero color coding ============ -->
+  <div class="trace-divider" data-trace="cascade" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" id="cascadeTracePath" d="M0,75 C 40,73 70,55 110,35 C 150,15 180,12 230,12 C 380,12 420,40 520,40 C 650,40 690,55 800,55 C 950,55 1000,28 1200,28" />
+    </svg>
+  </div>
 
-      <div class="cascade-timeline">
-        <div class="timeline-stage active-stage" id="stage1">
-          <div class="stage-time">0 — 60 s</div>
-          <div class="stage-bar">
-            <div class="stage-fill amber-fill" style="width: 100%"></div>
-          </div>
-          <div class="stage-name">Zone A saturates</div>
-          <div class="stage-desc">EDLC layer (AC + GNP) accepts current instantaneously. Operational readiness established. 525 mF/cm².</div>
-        </div>
-        <div class="timeline-stage" id="stage2">
-          <div class="stage-time">1 — 10 min</div>
-          <div class="stage-bar">
-            <div class="stage-fill gold-fill" style="width: 100%"></div>
-          </div>
-          <div class="stage-name">Zone B mediates</div>
-          <div class="stage-desc">Amorphous MnO₂ pseudocapacitive layer redistributes charge. Kinetic bridge couples Zone A output to Zone C input. 1.66 F/cm².</div>
-        </div>
-        <div class="timeline-stage" id="stage3">
-          <div class="stage-time">10 — 45 min</div>
-          <div class="stage-bar">
-            <div class="stage-fill brown-fill" style="width: 100%"></div>
-          </div>
-          <div class="stage-name">Zone C equilibrates</div>
-          <div class="stage-desc">α-MnO₂ Hollandite intercalation fills the deep energy reservoir via microchannel-assisted Zn²⁺ transport. 2.52 mAh/cm².</div>
+  <section class="cascade-section" id="cascade" aria-label="The cascade principle">
+    <div class="margin-col">
+      <div class="margin-tag">§ 3</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">All three zones, always active, each at its own natural rate.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">THE PRINCIPLE</span>
+        <h2>A cascade encoded in a single electrode.</h2>
+        <p class="lede">The HZIC doesn't switch between modes. All three zones are always active — each responding at its natural kinetic timescale. One monolithic structure yields instantaneous readiness, fast usable charge, and deep sustained energy.</p>
+      </div>
+
+      <div class="cascade-diagram" id="cascadeDiagram">
+        <svg viewBox="0 0 1000 360" preserveAspectRatio="xMidYMid meet" aria-label="Three overlapping saturation curves for Zone A, B, and C">
+          <g class="cascade-grid" aria-hidden="true">
+            <line x1="60" y1="40" x2="60" y2="320"></line>
+            <line x1="60" y1="320" x2="980" y2="320"></line>
+          </g>
+          <path class="cascade-curve curve-a" d="M60,320 C 90,150 110,55 160,50 C 400,45 700,45 980,45" />
+          <path class="cascade-curve curve-b" d="M60,320 C 140,318 220,300 300,210 C 380,130 460,95 980,90" />
+          <path class="cascade-curve curve-c" d="M60,320 C 250,318 400,310 520,260 C 680,195 800,150 980,135" />
+          <text class="cascade-axis-label" x="60" y="338">0s</text>
+          <text class="cascade-axis-label" x="980" y="338" text-anchor="end">45min</text>
+        </svg>
+        <div class="cascade-legend">
+          <button class="cascade-key" data-zone="a" aria-pressed="false">
+            <span class="key-swatch key-a"></span>
+            <span class="key-text"><strong>0–60s</strong> Zone A saturates <em class="plain">EDLC, AC + GNP, 525 mF/cm²</em></span>
+          </button>
+          <button class="cascade-key" data-zone="b" aria-pressed="false">
+            <span class="key-swatch key-b"></span>
+            <span class="key-text"><strong>1–10min</strong> Zone B mediates <em class="plain">amorphous MnO₂ pseudocapacitive, 1.66 F/cm²</em></span>
+          </button>
+          <button class="cascade-key" data-zone="c" aria-pressed="false">
+            <span class="key-swatch key-c"></span>
+            <span class="key-text"><strong>10–45min</strong> Zone C equilibrates <em class="plain">α-MnO₂ Hollandite intercalation <span class="plain2">— ion insertion into a tunnel-structured crystal</span>, 2.52 mAh/cm²</em></span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PERFORMANCE -->
-  <section id="performance" class="section perf-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">PERFORMANCE</div>
-      <h2>Honest numbers. Real constraints.</h2>
-      <p class="section-sub">The 7–8× energy density gap versus lithium-ion is real and irreducible — it's a consequence of the aqueous voltage ceiling, not a design deficiency. HZIC targets applications where safety, cycle life, and cost dominate.</p>
+  <!-- ============ PERFORMANCE ============ -->
+  <div class="trace-divider" data-trace="performance" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" d="M0,55 C 80,55 110,15 160,15 C 210,15 230,50 280,50 L 280,50 C 330,50 350,68 420,68 C 500,68 520,22 600,22 C 700,22 740,60 840,60 C 920,60 960,30 1200,30" />
+    </svg>
+  </div>
+
+  <section class="perf-section" id="performance" aria-label="Performance data">
+    <div class="margin-col">
+      <div class="margin-tag">§ 4</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">MVP measured today vs. stack target vs. incumbent Li-ion 18650.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">PERFORMANCE</span>
+        <h2>Honest numbers. Real constraints.</h2>
+        <p class="lede">The energy-density gap versus lithium-ion is real and not eliminable by materials selection — it's a direct consequence of the aqueous voltage ceiling. HZIC targets applications where safety, cycle life, and cost dominate the decision.</p>
+      </div>
 
       <div class="perf-table-wrap">
         <table class="perf-table">
           <thead>
-            <tr>
-              <th>Metric</th>
-              <th>HZIC MVP</th>
-              <th>HZIC Target</th>
-              <th>Li-ion 18650</th>
-            </tr>
+            <tr><th scope="col">Metric</th><th scope="col">HZIC MVP</th><th scope="col">HZIC Target</th><th scope="col">Li-ion 18650</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Volumetric energy density</td>
-              <td class="highlight-cell">29 Wh/L</td>
-              <td>58+ Wh/L</td>
-              <td class="dim-cell">235 Wh/L*</td>
-            </tr>
-            <tr>
-              <td>Stack voltage</td>
-              <td class="highlight-cell">3.9 V</td>
-              <td>3.9 V</td>
-              <td class="dim-cell">3.6 V</td>
-            </tr>
-            <tr>
-              <td>Full charge time</td>
-              <td class="highlight-cell">30–45 min</td>
-              <td>20–30 min</td>
-              <td class="dim-cell">60–90 min typical</td>
-            </tr>
-            <tr>
-              <td>Operational readiness</td>
-              <td class="highlight-cell">30–60 s</td>
-              <td>15–30 s</td>
-              <td class="dim-cell">N/A</td>
-            </tr>
-            <tr>
-              <td>Cycle life</td>
-              <td class="highlight-cell">3,000 target</td>
-              <td>5,000+</td>
-              <td class="dim-cell">300–500 typical</td>
-            </tr>
-            <tr>
-              <td>Thermal runaway risk</td>
-              <td class="highlight-cell good">Zero</td>
-              <td class="good">Zero</td>
-              <td class="dim-cell bad">Significant</td>
-            </tr>
-            <tr>
-              <td>Materials cost (at scale)</td>
-              <td class="highlight-cell">$0.87/Wh</td>
-              <td>$0.22/Wh</td>
-              <td class="dim-cell">$0.10–0.15/Wh</td>
-            </tr>
-            <tr>
-              <td>Cobalt / Lithium</td>
-              <td class="highlight-cell good">None</td>
-              <td class="good">None</td>
-              <td class="dim-cell bad">Required</td>
-            </tr>
+            <tr><td>Volumetric energy density</td><td class="lead">29 Wh/L</td><td>58+ Wh/L</td><td class="dim">235 Wh/L*</td></tr>
+            <tr><td>Stack voltage</td><td class="lead">3.9 V</td><td>3.9 V</td><td class="dim">3.6 V</td></tr>
+            <tr><td>Full charge time</td><td class="lead">30–45 min</td><td>20–30 min</td><td class="dim">60–90 min typical</td></tr>
+            <tr><td>Operational readiness</td><td class="lead">30–60 s</td><td>15–30 s</td><td class="dim">N/A</td></tr>
+            <tr><td>Cycle life</td><td class="lead">3,000 target</td><td>5,000+</td><td class="dim">300–500 typical</td></tr>
+            <tr><td>Thermal runaway risk</td><td class="lead good">Zero</td><td class="good">Zero</td><td class="dim bad">Significant</td></tr>
+            <tr><td>Materials cost at scale</td><td class="lead">$0.87/Wh</td><td>$0.22/Wh</td><td class="dim">$0.10–0.15/Wh</td></tr>
+            <tr><td>Cobalt / Lithium</td><td class="lead good">None</td><td class="good">None</td><td class="dim bad">Required</td></tr>
           </tbody>
         </table>
-        <div class="table-footnote">* Energy density gap versus Li-ion is a direct consequence of the aqueous voltage ceiling (1.3 V vs 3.6 V) and cannot be eliminated by materials selection. HZIC targets applications where this gap is acceptable.</div>
+        <p class="table-fn">* Energy density gap is a direct consequence of the aqueous voltage ceiling (1.3 V vs 3.6 V) and is not eliminable by materials selection. HZIC targets applications where this gap is acceptable.</p>
       </div>
     </div>
   </section>
 
-  <!-- APPLICATIONS -->
-  <section id="applications" class="section apps-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">APPLICATIONS</div>
-      <h2>Built for where safety and cycle life decide.</h2>
+  <!-- ============ APPLICATIONS ============ -->
+  <div class="trace-divider" data-trace="applications" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path trace-step" d="M0,65 L200,65 L200,45 L450,45 L450,58 L700,58 L700,22 L950,22 L950,40 L1200,40" />
+    </svg>
+  </div>
 
-      <div class="apps-grid">
+  <section class="apps-section" id="applications" aria-label="Applications">
+    <div class="margin-col">
+      <div class="margin-tag">§ 5</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Where safety and cycle life decide the procurement, not energy density.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">APPLICATIONS</span>
+        <h2>Built for where safety and cycle life decide.</h2>
+      </div>
+
+      <div class="app-grid">
         <div class="app-card">
-          <div class="app-icon">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
+          <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="11" y="14" width="18" height="14" rx="2"/><circle cx="16" cy="21" r="1.6" fill="currentColor" stroke="none"/><circle cx="24" cy="21" r="1.6" fill="currentColor" stroke="none"/><path d="M20 14V8M14 8h12"/><path d="M11 21H5M29 21h6"/></svg>
           <h3>Robotics &amp; automation</h3>
-          <p>Zone A/B absorbs actuator power bursts while Zone C sustains operation. Self-completion cascade recharges during idle — no charger needed. Non-flammability eliminates indoor fire ratings.</p>
+          <p>Zone A/B absorbs actuator power bursts while Zone C sustains operation. The cascade recharges itself during idle — no separate charger. Non-flammability eliminates indoor fire ratings.</p>
         </div>
         <div class="app-card">
-          <div class="app-icon">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-          </div>
+          <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="13"/><path d="M20 11v9l6 4"/></svg>
           <h3>Micro-mobility</h3>
-          <p>Sub-minute partial charge at any point cascades into useful range. 3.9 V nominal is compatible with existing low-voltage drive electronics. Zero fire risk simplifies regulatory approval.</p>
+          <p>Sub-minute partial charge at any point cascades into useful range. 3.9V nominal is compatible with existing low-voltage drive electronics. Zero fire risk simplifies regulatory approval.</p>
         </div>
         <div class="app-card">
-          <div class="app-icon">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-          </div>
+          <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="13" width="28" height="18" rx="2"/><path d="M14 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/><line x1="6" y1="22" x2="34" y2="22"/></svg>
           <h3>UPS &amp; telecom backup</h3>
-          <p>3,000+ cycle life vs. under 1,000 for standard Zn/MnO₂. Zero fire risk eliminates facility overhead and insurance costs that lithium-ion installations require.</p>
+          <p>3,000+ cycle life vs. under 1,000 for standard Zn/MnO₂ systems. Zero fire risk eliminates the facility overhead and insurance costs lithium-ion installations require.</p>
         </div>
         <div class="app-card">
-          <div class="app-icon">
-            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          </div>
+          <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 4 10 22h8l-2 14 14-20h-8l2-12z"/></svg>
           <h3>Industrial IoT buffering</h3>
-          <p>Zone A's 8-second response captures burst energy from solenoid actuation, motor starts, and sensor polling events that would otherwise be wasted or destabilise the supply.</p>
+          <p>Zone A's 8-second response captures burst energy from solenoid actuation, motor starts, and sensor polling events that would otherwise be wasted or destabilize the supply.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ROADMAP -->
-  <section class="section roadmap-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">ROADMAP</div>
-      <h2>Development stage.</h2>
-      <p class="section-sub">Core architecture, electrolyte formulation, and charge-control topology are fully specified. Prototype fabrication is the next milestone.</p>
+  <!-- ============ TEAM ============ -->
+  <div class="trace-divider" data-trace="team" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" d="M0,45 C 150,45 150,20 300,20 C 450,20 450,68 600,68 C 750,68 750,30 900,30 C 1000,30 1050,50 1200,50" />
+    </svg>
+  </div>
 
-      <div class="roadmap-track">
-        <div class="roadmap-item done">
-          <div class="rm-dot"></div>
-          <div class="rm-content">
-            <div class="rm-date">Completed</div>
-            <div class="rm-title">Architecture &amp; documentation</div>
-            <div class="rm-desc">Full BGC-X v2 specification, transport models, fabrication protocol, electrolyte formulation, and charge strategy defined.</div>
-          </div>
-        </div>
-        <div class="roadmap-item active">
-          <div class="rm-dot"></div>
-          <div class="rm-content">
-            <div class="rm-date">2026 Q2</div>
-            <div class="rm-title">Zinc symmetric cell validation</div>
-            <div class="rm-desc">Gradient quality Gq ≥ 3.5, microchannel formation confirmed by micro-CT, VGCF resistance target verified.</div>
-          </div>
-        </div>
-        <div class="roadmap-item">
-          <div class="rm-dot"></div>
-          <div class="rm-content">
-            <div class="rm-date">2026 Q3</div>
-            <div class="rm-title">Integrated HZIC module build</div>
-            <div class="rm-desc">Full single-cell prototype with cascade redistribution validation and pulse-charge protocol testing.</div>
-          </div>
-        </div>
-        <div class="roadmap-item">
-          <div class="rm-dot"></div>
-          <div class="rm-content">
-            <div class="rm-date">2026 Q4</div>
-            <div class="rm-title">Functional demonstrator</div>
-            <div class="rm-desc">3S bipolar 5×5 cm stack. Confirmed energy density, cycle life at 100 cycles, and performance benchmarks.</div>
-          </div>
-        </div>
-        <div class="roadmap-item">
-          <div class="rm-dot"></div>
-          <div class="rm-content">
-            <div class="rm-date">2027</div>
-            <div class="rm-title">Pilot-scale manufacturability</div>
-            <div class="rm-desc">Roll-to-roll compatibility study. 3,000-cycle validation. Energy density optimization to 58+ Wh/L target.</div>
-          </div>
-        </div>
-      </div>
+  <section class="team-section" id="team" aria-label="Team">
+    <div class="margin-col">
+      <div class="margin-tag">§ 6</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Four people, Chennai. Plus the underlying technical reference.</p>
     </div>
-  </section>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">THE TEAM</span>
+        <h2>Built in Chennai.</h2>
+      </div>
 
-  <!-- TEAM -->
-  <section id="team" class="section team-section">
-    <div class="section-inner">
-      <div class="eyebrow-small">THE TEAM</div>
-      <h2>Built in Chennai.</h2>
       <div class="team-grid">
         <div class="team-card">
-          <div class="team-initial">HK</div>
-          <div class="team-info">
-            <h3>Hitesh Kumaar K</h3>
-            <p>Founder · Systems Architecture</p>
-          </div>
+          <span class="team-init">HK</span>
+          <h3>Hitesh Kumaar K</h3>
+          <p>Founder · Systems Architecture</p>
         </div>
         <div class="team-card">
-          <div class="team-initial">SM</div>
-          <div class="team-info">
-            <h3>Sindhi Mathini I</h3>
-            <p>Co-Founder · Materials &amp; Research</p>
-          </div>
+          <span class="team-init">SM</span>
+          <h3>Sindhi Mathini I</h3>
+          <p>Co-Founder · Materials &amp; Research</p>
         </div>
         <div class="team-card">
-          <div class="team-initial">JV</div>
-          <div class="team-info">
-            <h3>Jeevan VP</h3>
-            <p>Power Electronics Lead</p>
-          </div>
+          <span class="team-init">JV</span>
+          <h3>Jeevan VP</h3>
+          <p>Power Electronics Lead</p>
         </div>
         <div class="team-card">
-          <div class="team-initial">RJ</div>
-          <div class="team-info">
-            <h3>Roshan J</h3>
-            <p>Social Media Manager</p>
-          </div>
+          <span class="team-init">RJ</span>
+          <h3>Roshan J</h3>
+          <p>Social Media Manager</p>
         </div>
       </div>
-      <div class="team-doc">
-        <a href="https://drive.google.com/file/d/1Diq_QVWx8Hv7GRzemPuaDxR72CCCtYjr/view?usp=sharing" target="_blank" class="btn-outline">Read the technical paper ↗</a>
+
+      <div class="citation-block">
+        <span class="citation-mark">[1]</span>
+        <div class="citation-text">
+          <span class="citation-title">Aurevo Dynamics — HZIC Technical Reference.</span>
+          <span class="citation-meta">Architecture specification, transport modeling, fabrication protocol. Chennai, 2026.</span>
+        </div>
+        <a href="https://drive.google.com/file/d/1Diq_QVWx8Hv7GRzemPuaDxR72CCCtYjr/view?usp=sharing" target="_blank" rel="noopener" class="citation-link">Read the paper ↗</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact-section">
-    <div class="section-inner contact-inner">
-      <div class="contact-left">
-        <div class="eyebrow-small">CONTACT</div>
+  <!-- ============ CONTACT ============ -->
+  <div class="trace-divider" data-trace="contact" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path" d="M0,60 C 200,60 240,20 400,20 C 560,20 600,65 760,65 C 880,65 920,30 1080,30 C 1140,30 1170,45 1200,45" />
+    </svg>
+  </div>
+
+  <section class="contact-section" id="contact" aria-label="Contact">
+    <div class="margin-col">
+      <div class="margin-tag">§ 7</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Seeking capital and collaborators. All three channels carry equal weight.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">CONTACT</span>
         <h2>Let's build the post-lithium future.</h2>
-        <p>We are seeking early-stage capital and technical collaborators to support prototype development and validation. If you work in deep-tech investing, energy materials, or applications in robotics, micro-mobility, or industrial storage — we want to talk.</p>
-        <a href="mailto:aurevodynamics@gmail.com" class="btn-primary">aurevodynamics@gmail.com</a>
+        <p class="lede">We're seeking early-stage capital and technical collaborators to support prototype development and validation — in deep-tech investing, energy materials, robotics, micro-mobility, or industrial storage.</p>
       </div>
-      <div class="contact-links">
-        <a href="mailto:aurevodynamics@gmail.com" class="contact-link">
-          <span class="cl-icon">✉</span>
-          <span>aurevodynamics@gmail.com</span>
+
+      <div class="contact-grid">
+        <a href="mailto:aurevodynamics@gmail.com" class="contact-channel">
+          <span class="ch-glyph">✉</span>
+          <span class="ch-text">
+            <span class="ch-label">Email</span>
+            <span class="ch-value">aurevodynamics@gmail.com</span>
+          </span>
         </a>
-        <a href="https://www.linkedin.com/company/aurevodynamics" target="_blank" class="contact-link">
-          <span class="cl-icon">in</span>
-          <span>linkedin.com/company/aurevodynamics</span>
+        <a href="https://www.linkedin.com/company/aurevodynamics" target="_blank" rel="noopener" class="contact-channel">
+          <span class="ch-glyph">in</span>
+          <span class="ch-text">
+            <span class="ch-label">LinkedIn</span>
+            <span class="ch-value">linkedin.com/company/aurevodynamics</span>
+          </span>
         </a>
-        <a href="https://x.com/AurevoDynamics" target="_blank" class="contact-link">
-          <span class="cl-icon">𝕏</span>
-          <span>@AurevoDynamics</span>
+        <a href="https://x.com/AurevoDynamics" target="_blank" rel="noopener" class="contact-channel">
+          <span class="ch-glyph">𝕏</span>
+          <span class="ch-text">
+            <span class="ch-label">X</span>
+            <span class="ch-value">@AurevoDynamics</span>
+          </span>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <span class="logo-mark">A</span>
-        <span>Aurevo Dynamics</span>
-      </div>
-      <div class="footer-tagline">Kinetically graded zinc hybrid energy. Chennai, India.</div>
-      <div class="footer-copy">© 2026 Aurevo Dynamics. All rights reserved.</div>
-    </div>
-  </footer>
+</main>
 
-  <script src="main.js"></script>
+<footer class="site-footer">
+  <div class="margin-col">
+    <div class="margin-rule"></div>
+  </div>
+  <div class="content-col footer-inner">
+    <span class="footer-mark">⏚ AUREVO DYNAMICS</span>
+    <span class="footer-tag">Kinetically graded zinc hybrid energy. Chennai, India.</span>
+    <span class="footer-copy">© 2026 Aurevo Dynamics.</span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
