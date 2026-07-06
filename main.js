@@ -1,5 +1,6 @@
 /* ==========================================================
    AUREVO DYNAMICS — interaction layer
+   HZIC-RC rectified-cascade revision
    ========================================================== */
 (function(){
   "use strict";
@@ -36,7 +37,7 @@
   });
 
   /* ---------------------------------------------------------
-     SCROLL REVEAL — generic fade/rise for section content
+     SCROLL REVEAL
   --------------------------------------------------------- */
   var revealTargets = document.querySelectorAll(
     ".section-head, .stat-grid, .roadmap-instrument, .problem-grid, " +
@@ -61,13 +62,12 @@
   }
 
   /* ---------------------------------------------------------
-     TRACE DIVIDERS — draw left-to-right once, on scroll-into-view
+     TRACE DIVIDERS + CHART LINES (same draw-in mechanism)
   --------------------------------------------------------- */
-  var tracePaths = document.querySelectorAll(".trace-path");
+  var tracePaths = document.querySelectorAll(".trace-path, .draw-path");
 
-  // set dasharray to each path's real length so the draw is precise
   tracePaths.forEach(function(path){
-    var len = path.getTotalLength ? path.getTotalLength() : 2000;
+    var len = path.getTotalLength ? path.getTotalLength() : 1000;
     path.style.strokeDasharray = len;
     path.style.strokeDashoffset = len;
   });
@@ -88,87 +88,135 @@
   }
 
   /* ---------------------------------------------------------
-     HERO ELECTRODE DIAGRAM — interactive zone linking
-     Clicking/hovering Zone A/B/C highlights:
-       - that layer in the diagram
-       - the matching stat in the stats strip
-       - the matching curve + legend key in the cascade section
+     CHART CARDS — reveal + trigger point/bar/value animations
   --------------------------------------------------------- */
-  var zoneButtons = document.querySelectorAll(".layer.zone");
-  var statEls = document.querySelectorAll(".stat[data-zone]");
-  var cascadeKeys = document.querySelectorAll(".cascade-key");
-  var cascadeCurves = {
-    a: document.querySelector(".curve-a"),
-    b: document.querySelector(".curve-b"),
-    c: document.querySelector(".curve-c")
-  };
-  var cascadeDiagram = document.getElementById("cascadeDiagram");
+  var chartCards = document.querySelectorAll(".chart-card");
+  chartCards.forEach(function(el){ el.classList.add("reveal"); });
 
-  function clearZoneState(){
-    zoneButtons.forEach(function(b){
-      b.classList.remove("is-active");
-      b.setAttribute("aria-pressed", "false");
-    });
-    statEls.forEach(function(s){ s.classList.remove("is-active"); });
-    cascadeKeys.forEach(function(k){
-      k.classList.remove("is-active");
-      k.setAttribute("aria-pressed", "false");
-    });
-    Object.keys(cascadeCurves).forEach(function(z){
-      if (cascadeCurves[z]) cascadeCurves[z].classList.remove("is-active");
-    });
+  if ("IntersectionObserver" in window && chartCards.length){
+    var chartObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          entry.target.classList.add("is-drawn"); // reused for chart-card itself if needed
+          chartObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: "0px 0px -40px 0px" });
+    chartCards.forEach(function(el){ chartObserver.observe(el); });
+  } else {
+    chartCards.forEach(function(el){ el.classList.add("is-visible"); });
   }
 
-  function activateZone(zone){
-    clearZoneState();
-    if (!zone) return;
-
-    var btn = document.getElementById("zoneBtn" + zone.toUpperCase());
-    if (btn){ btn.classList.add("is-active"); btn.setAttribute("aria-pressed", "true"); }
-
-    document.querySelectorAll('.stat[data-zone="' + zone + '"]').forEach(function(s){
-      s.classList.add("is-active");
-    });
-
-    document.querySelectorAll('.cascade-key[data-zone="' + zone + '"]').forEach(function(k){
-      k.classList.add("is-active");
-      k.setAttribute("aria-pressed", "true");
-    });
-
-    if (cascadeCurves[zone]) cascadeCurves[zone].classList.add("is-active");
-    if (cascadeDiagram) cascadeDiagram.classList.add("has-interacted");
+  /* ---------------------------------------------------------
+     STAT COUNTERS — animate .count-val spans when stat-grid reveals
+  --------------------------------------------------------- */
+  function animateCount(el){
+    if (el.dataset.counted) return;
+    el.dataset.counted = "1";
+    var target = parseFloat(el.getAttribute("data-target")) || 0;
+    var decimals = parseInt(el.getAttribute("data-decimals"), 10) || 0;
+    if (reduceMotion){
+      el.textContent = target.toFixed(decimals);
+      return;
+    }
+    var duration = 1100;
+    var start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = (target * eased).toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toFixed(decimals);
+    }
+    requestAnimationFrame(step);
   }
 
-  var activeZone = null;
-
-  function setActiveZone(zone, sticky){
-    if (sticky){
-      activeZone = (activeZone === zone) ? null : zone;
-      activateZone(activeZone);
-    } else if (!activeZone){
-      activateZone(zone);
+  var statGrid = document.querySelector(".stat-grid");
+  if (statGrid){
+    var countEls = statGrid.querySelectorAll(".count-val");
+    if ("IntersectionObserver" in window){
+      var countObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            countEls.forEach(animateCount);
+            countObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      countObserver.observe(statGrid);
+    } else {
+      countEls.forEach(animateCount);
     }
   }
 
-  zoneButtons.forEach(function(btn){
-    var zone = btn.getAttribute("data-zone");
-    btn.addEventListener("mouseenter", function(){ if (!activeZone) activateZone(zone); });
-    btn.addEventListener("mouseleave", function(){ if (!activeZone) clearZoneState(); });
-    btn.addEventListener("click", function(){ setActiveZone(zone, true); });
-    btn.addEventListener("focus", function(){ if (!activeZone) activateZone(zone); });
-    btn.addEventListener("blur", function(){ if (!activeZone) clearZoneState(); });
+  /* ---------------------------------------------------------
+     GLOBAL CHARGE / DISCHARGE MODE
+     One rectified channel, two speeds. Toggling mode updates:
+       - the reservoir layer's ion animation + readout text
+       - the matching stats in the stats strip
+       - the matching curve + legend key in the rectification section
+  --------------------------------------------------------- */
+  var modeButtons = document.querySelectorAll(".mode-btn, .cascade-key");
+  var reservoirLayer = document.getElementById("reservoirLayer");
+  var reservoirNarrative = document.getElementById("reservoirNarrative");
+  var reservoirReadout = document.getElementById("reservoirReadout");
+  var statEls = document.querySelectorAll(".stat[data-mode]");
+  var cascadeCurves = {
+    charge: document.querySelector(".curve-charge"),
+    discharge: document.querySelector(".curve-discharge")
+  };
+  var cascadeDiagram = document.getElementById("cascadeDiagram");
+
+  var narrativeByMode = {
+    charge: "wide mouth (15 µm) admits ions fast",
+    discharge: "narrow throat (2.5 µm) meters ions out slowly"
+  };
+  var readoutByMode = {
+    charge: "τ ≈ 21 s",
+    discharge: "~6× access resistance"
+  };
+
+  function setMode(mode){
+    // toggle buttons (both the hero mode-toggle and the legend keys)
+    document.querySelectorAll(".mode-btn[data-mode], .cascade-key[data-mode]").forEach(function(btn){
+      var isThisMode = btn.getAttribute("data-mode") === mode;
+      btn.classList.toggle("is-active", isThisMode);
+      btn.setAttribute("aria-pressed", isThisMode ? "true" : "false");
+    });
+
+    // reservoir layer visual + copy
+    if (reservoirLayer){
+      reservoirLayer.classList.toggle("mode-discharge", mode === "discharge");
+    }
+    if (reservoirNarrative) reservoirNarrative.textContent = narrativeByMode[mode];
+    if (reservoirReadout) reservoirReadout.textContent = readoutByMode[mode];
+
+    // stats strip
+    statEls.forEach(function(s){
+      s.classList.toggle("is-active", s.getAttribute("data-mode") === mode);
+    });
+
+    // rectification curves
+    Object.keys(cascadeCurves).forEach(function(m){
+      if (cascadeCurves[m]) cascadeCurves[m].classList.toggle("is-active", m === mode);
+    });
+    if (cascadeDiagram) cascadeDiagram.classList.add("has-interacted");
+  }
+
+  modeButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var mode = btn.getAttribute("data-mode");
+      if (mode) setMode(mode);
+    });
   });
 
-  cascadeKeys.forEach(function(key){
-    var zone = key.getAttribute("data-zone");
-    key.addEventListener("mouseenter", function(){ if (!activeZone) activateZone(zone); });
-    key.addEventListener("mouseleave", function(){ if (!activeZone) clearZoneState(); });
-    key.addEventListener("click", function(){ setActiveZone(zone, true); });
-  });
+  // default state on load: charge
+  setMode("charge");
 
   /* ---------------------------------------------------------
-     HERO MARGIN COORDS — a quiet oscilloscope-y cursor readout,
-     desktop only, purely decorative instrument detail
+     HERO MARGIN COORDS — decorative cursor readout, desktop only
   --------------------------------------------------------- */
   var coordsEl = document.getElementById("cursorCoords");
   var heroSection = document.getElementById("hero");
@@ -187,12 +235,119 @@
   }
 
   /* ---------------------------------------------------------
-     ROADMAP "now" marker — gentle pulse already handled in CSS;
-     ensure reduced-motion users still see a clear current-stage cue
+     ROADMAP "now" marker — reduced-motion fallback
   --------------------------------------------------------- */
   if (reduceMotion){
     var nowMarker = document.querySelector(".rm-step.now .rm-marker");
     if (nowMarker) nowMarker.style.boxShadow = "0 0 0 4px rgba(196,87,26,.18)";
+  }
+
+  /* ---------------------------------------------------------
+     THEME TOGGLE — light / dark, defaults to system preference.
+     No persistence beyond this session (no browser storage used).
+  --------------------------------------------------------- */
+  var htmlEl = document.documentElement;
+  var themeToggle = document.getElementById("themeToggle");
+  var themeToggleMobile = document.getElementById("themeToggleMobile");
+  var mobileThemeLabel = themeToggleMobile ? themeToggleMobile.querySelector(".theme-toggle-label") : null;
+
+  var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  setTheme(prefersDark ? "dark" : "light");
+
+  function setTheme(mode){
+    htmlEl.setAttribute("data-theme", mode);
+    var isDark = mode === "dark";
+    [themeToggle, themeToggleMobile].forEach(function(btn){
+      if (btn) btn.setAttribute("aria-pressed", isDark ? "true" : "false");
+    });
+    if (themeToggle) themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    if (themeToggleMobile) themeToggleMobile.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    if (mobileThemeLabel) mobileThemeLabel.textContent = isDark ? "Dark mode" : "Light mode";
+  }
+
+  function toggleTheme(){
+    var next = htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    setTheme(next);
+  }
+
+  if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+  if (themeToggleMobile) themeToggleMobile.addEventListener("click", toggleTheme);
+
+  /* ---------------------------------------------------------
+     AMBIENT ION-FLOW CANVAS — hero background, purely decorative.
+     Particles drift up-left to up-right representing zinc ions;
+     paused entirely under reduced-motion.
+  --------------------------------------------------------- */
+  var ionCanvas = document.getElementById("ionCanvas");
+  if (ionCanvas && !reduceMotion){
+    var ctx = ionCanvas.getContext("2d");
+    var particles = [];
+    var heroEl = document.getElementById("hero");
+    var w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var rafId = null;
+    var visible = true;
+
+    function colorFor(mode){
+      var isDark = htmlEl.getAttribute("data-theme") === "dark";
+      if (mode === "copper") return isDark ? "255,138,68" : "196,87,26";
+      return isDark ? "79,217,190" : "47,107,94";
+    }
+
+    function resize(){
+      var rect = heroEl.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      ionCanvas.width = w * dpr;
+      ionCanvas.height = h * dpr;
+      ionCanvas.style.width = w + "px";
+      ionCanvas.style.height = h + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seedParticles();
+    }
+
+    function seedParticles(){
+      var count = w < 700 ? 22 : 42;
+      particles = [];
+      for (var i = 0; i < count; i++){
+        particles.push(makeParticle(true));
+      }
+    }
+
+    function makeParticle(randomX){
+      var speed = 0.15 + Math.random() * 0.35;
+      return {
+        x: randomX ? Math.random() * w : -10,
+        y: Math.random() * h,
+        r: 1 + Math.random() * 1.8,
+        speed: speed,
+        drift: (Math.random() - 0.5) * 0.12,
+        mode: Math.random() > 0.5 ? "copper" : "teal",
+        alpha: 0.25 + Math.random() * 0.45
+      };
+    }
+
+    function tick(){
+      if (!visible){ rafId = requestAnimationFrame(tick); return; }
+      ctx.clearRect(0, 0, w, h);
+      for (var i = 0; i < particles.length; i++){
+        var p = particles[i];
+        p.x += p.speed;
+        p.y += p.drift;
+        if (p.x > w + 10){ particles[i] = makeParticle(false); continue; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(" + colorFor(p.mode) + "," + p.alpha + ")";
+        ctx.fill();
+      }
+      rafId = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener("resize", resize, { passive: true });
+    document.addEventListener("visibilitychange", function(){
+      visible = !document.hidden;
+    });
+
+    resize();
+    tick();
   }
 
 })();
