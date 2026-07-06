@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurevo Dynamics - HZIC-RC Rectified Cascade Zinc Hybrid Capacitor</title>
-<meta name="description" content="Aurevo Dynamics is developing HZIC-RC, a zinc hybrid capacitor that uses rectified conical microchannels to charge in seconds and discharge for hours -from a single earth-abundant electrode, with zero thermal runaway risk.">
-<meta property="og:title" content="Aurevo Dynamics - HZIC-RC">
-<meta property="og:description" content="One electrode. Two speeds. Charge in seconds, discharge for hours -by geometry, not chemistry tricks.">
+<title>Aurevo Dynamics — HZIC-RC Rectified Cascade Zinc Hybrid Capacitor</title>
+<meta name="description" content="HZIC-RC is Aurevo Dynamics' rectified-cascade zinc hybrid capacitor — a single aqueous electrode that charges in 30–60 seconds and discharges for hours, using conical channel geometry instead of chemistry to control the difference. Zero thermal runaway. Earth-abundant materials.">
+<meta property="og:title" content="Aurevo Dynamics — HZIC-RC">
+<meta property="og:description" content="Wide way in. Narrow way out. One electrode, two speeds — by geometry, not exotic chemistry.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,11 +25,17 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#technology">Technology</a>
+      <a href="#rectification">Mechanism</a>
+      <a href="#data">Data</a>
       <a href="#performance">Performance</a>
       <a href="#applications">Applications</a>
       <a href="#team">Team</a>
       <a href="#contact" class="nav-cta">Get in touch</a>
     </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5z"/></svg>
+    </button>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -37,19 +43,24 @@
 </header>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#technology">01 -Technology</a>
-  <a href="#rectification">02 -Rectification</a>
-  <a href="#performance">03 -Performance</a>
-  <a href="#applications">04 -Applications</a>
-  <a href="#roadmap-section">05 -Roadmap</a>
-  <a href="#team">06 -Team</a>
-  <a href="#contact">07 -Get in touch</a>
+  <a href="#technology">01 — Technology</a>
+  <a href="#rectification">02 — Mechanism</a>
+  <a href="#data">03 — Data</a>
+  <a href="#performance">04 — Performance</a>
+  <a href="#applications">05 — Applications</a>
+  <a href="#team">06 — Team</a>
+  <a href="#contact">07 — Get in touch</a>
+  <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Switch to dark mode" aria-pressed="false">
+    <span class="icon-sun">☀</span> <span class="theme-toggle-label">Light mode</span>
+  </button>
 </div>
 
 <main id="top">
 
-  <!-- ============ HERO -the rectified channel IS the hero ============ -->
+  <!-- ============ HERO — the rectified channel IS the hero ============ -->
   <section class="hero" id="hero" aria-label="Hero">
+    <canvas class="ion-canvas" id="ionCanvas" aria-hidden="true"></canvas>
+
     <div class="margin-col">
       <div class="margin-tag">FIG. 1</div>
       <div class="margin-rule"></div>
@@ -61,13 +72,13 @@
       <div class="hero-head">
         <div class="hero-tags">
           <span class="tag">LITHIUM-FREE</span><span class="tag-sep">/</span>
-          <span class="tag">ZERO THERMAL RUNAWAY</span><span class="tag-sep">/</span>
-          <span class="tag">~8× RECTIFICATION</span>
+          <span class="tag">AQUEOUS</span><span class="tag-sep">/</span>
+          <span class="tag">ZERO THERMAL RUNAWAY</span>
         </div>
-        <h1 class="hero-title">Charge in seconds.<br>Discharge for hours.</h1>
-        <p class="hero-sub"><strong>HZIC-RC</strong> is Aurevo Dynamics' rectified-cascade zinc hybrid capacitor. One 600 µm electrode, one geometric trick -conical microchannels that let ions rush in from the wide side and only trickle out the narrow side -decouples fast charging from deep, sustained discharge without three separate material zones.</p>
+        <h1 class="hero-title">Wide way in.<br>Narrow way out.</h1>
+        <p class="hero-sub"><strong>HZIC-RC</strong> is Aurevo Dynamics' rectified-cascade zinc hybrid capacitor. A single 600 µm electrode uses conical microchannels — wide mouth facing the electrolyte, narrow throat facing the collector — so ions rush in during charge and are throttled on the way out during discharge. One geometry, two speeds, no moving parts.</p>
         <div class="hero-actions">
-          <a href="#technology" class="btn-primary">Explore the technology</a>
+          <a href="#rectification" class="btn-primary">See the mechanism</a>
           <a href="https://drive.google.com/file/d/1FTR4LMyNDoaUiZof_QmGBkauwTnWZ-fO/view?usp=sharing" target="_blank" rel="noopener" class="btn-ghost">Read the paper <span class="arrow">↗</span></a>
         </div>
       </div>
@@ -96,7 +107,7 @@
 
           <div class="layer spreader" data-layer="spreader">
             <span class="layer-tick"></span>
-            <span class="layer-label">Current spreader <em>AC + carbon black · 10 µm -smooths inrush only, not an energy buffer</em></span>
+            <span class="layer-label">Current spreader <em>AC + carbon black · 10 µm — smooths inrush only, not an energy buffer</em></span>
           </div>
 
           <div class="layer reservoir" id="reservoirLayer" data-layer="reservoir">
@@ -106,7 +117,7 @@
               <span class="ion-dot d3"></span>
             </div>
             <span class="layer-label">
-              <span class="zone-name">Energy reservoir -rectified microchannels</span>
+              <span class="zone-name">Energy reservoir — rectified microchannels</span>
               <em>600 µm · O-vacancy α-MnO₂ · <span id="reservoirNarrative">wide mouth (15 µm) admits ions fast</span></em>
             </span>
             <span class="layer-readout" id="reservoirReadout">τ ≈ 21 s</span>
@@ -114,7 +125,7 @@
 
           <div class="layer electrolyte" data-layer="wis">
             <span class="layer-tick"></span>
-            <span class="layer-label">Water-in-salt electrolyte <em>Zn(OTf)₂ / ZnSO₄ · 30 µm · 15–22 mS/cm -wide mouth of the channel faces this side</em></span>
+            <span class="layer-label">Water-in-salt electrolyte <em>Zn(OTf)₂ / ZnSO₄ · 30 µm · 15–22 mS/cm — wide mouth of the channel faces this side</em></span>
           </div>
 
           <div class="layer anode" data-layer="anode">
@@ -124,7 +135,7 @@
 
           <div class="layer collector" data-layer="collector-bot">
             <span class="layer-tick"></span>
-            <span class="layer-label">Current collector <em>Al/C · 8 µm -narrow throat faces this side</em></span>
+            <span class="layer-label">Current collector <em>Al/C · 8 µm — narrow throat faces this side</em></span>
           </div>
 
         </div>
@@ -143,7 +154,7 @@
     <div class="margin-col">
       <div class="margin-tag">FIG. 2</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">Top-line figures for the current design. Several remain design targets -see § Performance.</p>
+      <p class="margin-note">Top-line figures for the current design. Several remain design targets pending fabrication — see § Performance.</p>
     </div>
     <div class="content-col">
       <div class="stat-grid">
@@ -156,23 +167,23 @@
           <span class="stat-cap">Sustained discharge</span>
         </div>
         <div class="stat">
-          <span class="stat-num">~8<small>×</small></span>
-          <span class="stat-cap">Charge/discharge rectification ratio</span>
+          <span class="stat-num">~<span class="count-val" data-target="8" data-decimals="0">0</span><small>×</small></span>
+          <span class="stat-cap">Charge / discharge rectification ratio</span>
         </div>
         <div class="stat">
-          <span class="stat-num">3.8<small>V</small></span>
+          <span class="stat-num"><span class="count-val" data-target="3.8" data-decimals="1">0.0</span><small>V</small></span>
           <span class="stat-cap">2S bipolar stack voltage</span>
         </div>
         <div class="stat">
-          <span class="stat-num">99.8<small>Wh/L</small></span>
+          <span class="stat-num"><span class="count-val" data-target="99.8" data-decimals="1">0.0</span><small>Wh/L</small></span>
           <span class="stat-cap">Design-target energy density<sup>†</sup></span>
         </div>
         <div class="stat">
-          <span class="stat-num">3.44<small>×</small></span>
-          <span class="stat-cap">vs. prior BGC-X v2 MVP (29.0 Wh/L)</span>
+          <span class="stat-num"><span class="count-val" data-target="260" data-decimals="0">0</span><small>mAh/g</small></span>
+          <span class="stat-cap">Cathode specific capacity</span>
         </div>
         <div class="stat">
-          <span class="stat-num">&lt;1<small>%</small></span>
+          <span class="stat-num">&lt;<span class="count-val" data-target="1" data-decimals="0">0</span><small>%</small></span>
           <span class="stat-cap">Channel volume fraction<sup>‡</sup></span>
         </div>
         <div class="stat">
@@ -180,7 +191,7 @@
           <span class="stat-cap">Thermal runaway risk</span>
         </div>
       </div>
-      <p class="table-fn"><sup>†</sup> Derived from stack geometry and half-cell literature values; not yet measured in a fabricated full cell. <sup>‡</sup> vs. &gt;55% required by an equivalent symmetric-channel network -see § The Problem.</p>
+      <p class="table-fn"><sup>†</sup> Derived from stack geometry and half-cell literature values; not yet measured in a fabricated full cell. <sup>‡</sup> vs. &gt;55% that an equivalent symmetric-channel network would require — see § The Problem.</p>
     </div>
   </section>
 
@@ -195,13 +206,13 @@
     <div class="margin-col">
       <div class="margin-tag">FIG. 3</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">Stage progress, present day marked. The architecture changed under us in June -this roadmap restarts validation from Step 1.</p>
+      <p class="margin-note">Stage progress, present day marked. Updated as each gate closes.</p>
     </div>
     <div class="content-col">
       <div class="section-head">
         <span class="eyebrow">CURRENT STAGE</span>
-        <h2>We rebuilt the core idea. Validation starts over.</h2>
-        <p class="lede">HZIC-RC replaces the prior three-zone cascade with a single rectified reservoir. The physics is fully specified on paper; nothing about the rectified channel has been fabricated yet. That single-channel proof is the next milestone, and the one honest gate before anything else is reported.</p>
+        <h2>The architecture is fully specified. Fabrication is next.</h2>
+        <p class="lede">Every number on this page above the roadmap is a design target derived from stack geometry, transport modeling, and half-cell literature — not yet a measured full cell. The single-channel rectification proof is the next milestone, and the one gate nothing else is built ahead of.</p>
       </div>
 
       <div class="roadmap-instrument" id="roadmapInstrument">
@@ -209,32 +220,32 @@
         <div class="rm-step done">
           <span class="rm-marker" aria-hidden="true"></span>
           <span class="rm-date">Completed</span>
-          <span class="rm-title">HZIC-RC architecture &amp; documentation</span>
-          <span class="rm-desc">Full transport model, rectification-ratio derivation, fabrication protocol, and the five ranked design changes from BGC-X v2.</span>
+          <span class="rm-title">Architecture &amp; documentation</span>
+          <span class="rm-desc">Full transport model, rectification-ratio derivation, radial diffusion analysis, and fabrication protocol for the rectified channel.</span>
         </div>
         <div class="rm-step now">
           <span class="rm-marker" aria-hidden="true"></span>
-          <span class="rm-date">2026 Q3 -now</span>
+          <span class="rm-date">Now</span>
           <span class="rm-title">Single-channel rectification proof</span>
           <span class="rm-desc">Fabricate one conical channel in a thick electrode-like matrix. Measure access resistance in each orientation. Gate: R<sub>rect</sub> ≥ 4× before anything is built at scale.</span>
         </div>
         <div class="rm-step">
           <span class="rm-marker" aria-hidden="true"></span>
-          <span class="rm-date">2026 Q4</span>
+          <span class="rm-date">Next</span>
           <span class="rm-title">Cathode, electrolyte &amp; anode validation</span>
-          <span class="rm-desc">O-vacancy α-MnO₂ half-cell capacity, water-in-salt stability window, Cu-NP symmetric Zn‖Zn cycling -each in isolation before the full stack.</span>
+          <span class="rm-desc">O-vacancy α-MnO₂ half-cell capacity, water-in-salt stability window, Cu-NP symmetric Zn‖Zn cycling — each validated in isolation before the full stack.</span>
         </div>
         <div class="rm-step">
           <span class="rm-marker" aria-hidden="true"></span>
-          <span class="rm-date">2027 Q1–Q2</span>
+          <span class="rm-date">Then</span>
           <span class="rm-title">Full-cell assembly &amp; 100/500-cycle test</span>
           <span class="rm-desc">First single-cell energy density measurement and EIS-extracted rectification ratio. Capacity retention targets: &gt;90% at 100 cycles, &gt;82% at 500.</span>
         </div>
         <div class="rm-step">
           <span class="rm-marker" aria-hidden="true"></span>
-          <span class="rm-date">2027 Q3–Q4</span>
+          <span class="rm-date">Later</span>
           <span class="rm-title">2S bipolar prototype &amp; 3,000-cycle test</span>
-          <span class="rm-desc">Full 5×5 cm 2S stack at N/P = 3.1×. Cycle life claim treated as unverified until this step completes.</span>
+          <span class="rm-desc">Full 5×5 cm 2S stack at N/P = 3.1×. The cycle-life target is treated as unverified until this step completes.</span>
         </div>
       </div>
     </div>
@@ -251,7 +262,7 @@
     <div class="margin-col">
       <div class="margin-tag">§ 1</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">The same channel that lets ions in fast during charge also governs how they leave during discharge -unless it's shaped to break that link.</p>
+      <p class="margin-note">The same channel that lets ions in fast during charge also governs how they leave during discharge — unless it's shaped to break that link.</p>
     </div>
     <div class="content-col">
       <div class="section-head">
@@ -260,8 +271,8 @@
       </div>
       <div class="problem-grid">
         <div class="problem-text">
-          <p>Aqueous zinc storage is intrinsically safe and cheap, but every prior hybrid architecture -including our own -ran into the same geometric wall: a channel network dense enough to admit ions in seconds necessarily occupies most of the electrode. Sparse channels for energy density mean slow charging; dense channels for fast charging mean there's barely any room left for active material.</p>
-          <p>Our earlier BGC-X design worked around this with three kinetically distinct zones acting in sequence -an EDLC skin for instant response, a pseudocapacitive middle layer, and a slow bulk reservoir. It worked, but it capped Zone C at 300–450 µm and 29–58 Wh/L, because a symmetric channel network still had to serve both directions of ion flow equally.</p>
+          <p>Aqueous zinc storage is intrinsically safe, cheap, and free of cobalt or lithium — zinc is abundant, non-flammable in water-based electrolytes, and simple to manufacture. But every symmetric-channel electrode design runs into the same geometric wall: a pore network dense enough to admit ions in seconds necessarily occupies most of the electrode volume. Sparse channels favor energy density; dense channels favor fast charge. You can't maximize both through the same symmetric pathway.</p>
+          <p>A cylindrical-channel network built to fully charge a 600 µm electrode in 30 seconds needs channels occupying more than 55% of that electrode's volume — leaving less than half for the material that actually stores energy.</p>
           <p class="highlight">HZIC-RC asks a different question: what if charge and discharge don't need to share the same ionic pathway at the same speed?</p>
         </div>
 
@@ -276,23 +287,23 @@
               <td class="neg">Thermal runaway · cobalt supply dependency · fire-suppression overhead</td>
             </tr>
             <tr>
-              <td class="mt-glyph" data-glyph="sym">Symmetric-channel zinc hybrid<br><span class="plain">our prior BGC-X v2</span></td>
-              <td>Safe, earth-abundant, sub-45-min charge</td>
-              <td class="neg">Channel network needs &gt;55% of electrode volume for 30 s charging -caps energy density at 29–58 Wh/L</td>
+              <td class="mt-glyph" data-glyph="sym">Symmetric-channel zinc hybrids<br><span class="plain">the conventional approach</span></td>
+              <td>Safe, earth-abundant, reasonably fast charge</td>
+              <td class="neg">Channel network needs &gt;55% of electrode volume for 30 s charging — caps volumetric energy density well below 100 Wh/L</td>
             </tr>
             <tr class="mt-row-good">
               <td class="mt-glyph" data-glyph="hzic">Aurevo HZIC-RC<br><span class="plain">rectified conical channels</span></td>
-              <td class="pos">Same safety, &lt;1% channel volume, 99.8 Wh/L design target -3.44× the prior MVP</td>
+              <td class="pos">Same aqueous safety, &lt;1% channel volume, 99.8 Wh/L design target</td>
               <td>Tapered-channel fabrication at scale is genuinely unproven<sup>†</sup></td>
             </tr>
           </tbody>
         </table>
-        <p class="table-fn"><sup>†</sup> The single highest-risk item in the design -see the roadmap's current gate above.</p>
+        <p class="table-fn"><sup>†</sup> The single highest-risk item in the design — see the roadmap's current gate above.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ TECHNOLOGY -four concurrent advances ============ -->
+  <!-- ============ TECHNOLOGY — four concurrent pillars ============ -->
   <div class="trace-divider" data-trace="tech" aria-hidden="true">
     <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
       <path class="trace-path trace-step" d="M0,60 L260,60 L260,30 L560,30 L560,55 L860,55 L860,18 L1200,18" />
@@ -303,45 +314,45 @@
     <div class="margin-col">
       <div class="margin-tag">§ 2</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">Four concurrent engineering decisions, ranked by impact on energy density. None is a step before or after another.</p>
+      <p class="margin-note">Four concurrent engineering decisions around the rectified channel. None is a step before or after another.</p>
     </div>
     <div class="content-col">
       <div class="section-head">
         <span class="eyebrow">THE ARCHITECTURE</span>
-        <h2>Four advances. One 600 µm reservoir.</h2>
-        <p class="lede">Each targets a specific constraint that limited the prior design. Together they take HZIC-RC from 29.0 to a 99.8 Wh/L design target -a 3.44× improvement.</p>
+        <h2>Four supporting decisions around one channel.</h2>
+        <p class="lede">The rectified channel geometry is the foundational mechanism — covered next. These four choices are what let the rest of the cell take full advantage of it.</p>
       </div>
 
       <div class="advance-grid">
-        <div class="advance-card" data-group="structure">
-          <span class="advance-kicker">TRANSPORT · #1 IMPACT</span>
-          <h3>Rectified conical microchannels</h3>
-          <p>Channels taper from a 15 µm mouth on the electrolyte side to a 2.5 µm throat on the collector side <span class="plain">-access resistance scales inversely with pore radius, so the wide end is easy to enter and the narrow end throttles the exit</span>. Channel volume drops from &gt;55% to &lt;1% of the electrode at equivalent 30 s charge kinetics.</p>
-          <span class="advance-tag">&lt;1% channel volume · ~8× rectification</span>
+        <div class="advance-card" data-group="electrolyte">
+          <span class="advance-kicker">ELECTROLYTE</span>
+          <h3>Water-in-salt formulation</h3>
+          <p>Concentrated Zn(OTf)₂ or ZnSO₄ <span class="plain">— salt outnumbers water molecules, which suppresses water oxidation and widens the safe voltage window</span>. Supports a practical 1.9 V/cell operating voltage with &gt;1 V of margin against gas evolution, at 30 µm thickness and 15–22 mS/cm conductivity.</p>
+          <span class="advance-tag">1.9 V/cell · 30 µm</span>
         </div>
-        <div class="advance-card" data-group="transport">
-          <span class="advance-kicker">ELECTROLYTE · #2 IMPACT</span>
-          <h3>Water-in-salt electrolyte</h3>
-          <p>Concentrated Zn(OTf)₂ or ZnSO₄ <span class="plain">-salt outnumbers water molecules, which suppresses water oxidation and widens the safe voltage window</span>. Raises practical cell voltage from 1.3 to 1.9 V while dropping electrolyte thickness from 75 to 30 µm.</p>
-          <span class="advance-tag">1.3 → 1.9 V/cell</span>
-        </div>
-        <div class="advance-card" data-group="structure">
-          <span class="advance-kicker">CATHODE · #3 IMPACT</span>
+        <div class="advance-card" data-group="cathode">
+          <span class="advance-kicker">CATHODE</span>
           <h3>Oxygen-vacancy α-MnO₂</h3>
-          <p>Calcining Hollandite-structure α-MnO₂ at ~500°C <span class="plain">introduces oxygen vacancies that raise electronic conductivity and open extra sites for zinc-ion insertion</span>. Specific capacity rises from 180 to 260 mAh/g, within the literature-validated range.</p>
-          <span class="advance-tag">180 → 260 mAh/g</span>
+          <p>Calcining Hollandite-structure α-MnO₂ at ~500°C <span class="plain">introduces oxygen vacancies that raise electronic conductivity and open extra sites for zinc-ion insertion</span>. Specific capacity of 260 mAh/g, within the literature-validated 271–308 mAh/g range for calcined α-MnO₂ at this temperature.</p>
+          <span class="advance-tag">260 mAh/g · 18.7 mg/cm²</span>
         </div>
-        <div class="advance-card" data-group="structure">
-          <span class="advance-kicker">ANODE · #4 IMPACT</span>
-          <h3>Copper-nanoparticle anode modification</h3>
-          <p>A thin Cu-NP surface treatment <span class="plain">gives zinc a far easier surface to nucleate on, so deposits spread evenly instead of concentrating into dendrites</span>. That safely tightens the N/P ratio from 5.9× to 3.1×, reclaiming anode volume.</p>
-          <span class="advance-tag">N/P 5.9× → 3.1×</span>
+        <div class="advance-card" data-group="anode">
+          <span class="advance-kicker">ANODE</span>
+          <h3>Copper-nanoparticle modification</h3>
+          <p>A thin Cu-NP surface treatment <span class="plain">gives zinc a far easier surface to nucleate on, so deposits spread evenly instead of concentrating into dendrites</span> — roughly 240× the nucleation rate of bare carbon. Supports a tightened N/P ratio of 3.1× without sacrificing dendrite safety.</p>
+          <span class="advance-tag">N/P 3.1× · −15 mV η<sub>nuc</sub></span>
+        </div>
+        <div class="advance-card" data-group="stack">
+          <span class="advance-kicker">STACK</span>
+          <h3>2S bipolar architecture</h3>
+          <p>Two cells share one internal current collector <span class="plain">— fewer interfaces, simpler assembly, and no dead volume from a redundant collector pair</span>. Delivers 3.8 V nominal from a 25 cm² active area and an 884 µm total single-cell stack.</p>
+          <span class="advance-tag">3.8 V · 884 µm total</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ RECTIFICATION -the real signature diagram ============ -->
+  <!-- ============ RECTIFICATION — the signature mechanism ============ -->
   <div class="trace-divider" data-trace="cascade" aria-hidden="true">
     <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
       <path class="trace-path" id="cascadeTracePath" d="M0,75 C 40,73 70,55 110,35 C 150,15 180,12 230,12 C 380,12 420,40 520,40 C 650,40 690,55 800,55 C 950,55 1000,28 1200,28" />
@@ -352,13 +363,28 @@
     <div class="margin-col">
       <div class="margin-tag">§ 3</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">Same channel, same electrode. Only the entry point changes -and that's enough.</p>
+      <p class="margin-note">Same channel, same electrode. Only the entry point changes — and that's enough.</p>
     </div>
     <div class="content-col">
       <div class="section-head">
         <span class="eyebrow">THE PRINCIPLE</span>
         <h2>One channel, two timescales.</h2>
-        <p class="lede">A conical pore is not symmetric: the access resistance an ion feels entering the wide mouth is roughly six times lower than entering the narrow throat. That single geometric fact is the whole mechanism -it needs no switching, no separate zones, no active control.</p>
+        <p class="lede">A conical pore is not symmetric. The access resistance an ion feels entering the wide mouth scales as ρ<sub>e</sub>/4r<sub>w</sub> — roughly six times lower than entering the narrow throat, ρ<sub>e</sub>/4r<sub>n</sub>. That single geometric fact is the whole mechanism. It needs no switching, no separate zones, no active control.</p>
+      </div>
+
+      <div class="equation-row" aria-label="Governing equations">
+        <div class="equation-card">
+          <span class="eq-label">Access resistance, wide mouth</span>
+          <span class="eq-expr">R<sub>access,w</sub> = ρ<sub>e</sub> / 4r<sub>w</sub></span>
+        </div>
+        <div class="equation-card">
+          <span class="eq-label">Access resistance, narrow throat</span>
+          <span class="eq-expr">R<sub>access,n</sub> = (r<sub>w</sub>/r<sub>n</sub>) · R<sub>access,w</sub></span>
+        </div>
+        <div class="equation-card">
+          <span class="eq-label">Rectification ratio</span>
+          <span class="eq-expr">R<sub>rect</sub> ≈ (r<sub>w</sub>/r<sub>n</sub>) · K<sub>geom</sub> ≈ 8×</span>
+        </div>
       </div>
 
       <div class="cascade-diagram" id="cascadeDiagram">
@@ -375,13 +401,149 @@
         <div class="cascade-legend">
           <button class="cascade-key" data-mode="charge" aria-pressed="true">
             <span class="key-swatch key-charge"></span>
-            <span class="key-text"><strong>Charge, 30–60 s</strong> Ions enter the 15 µm wide mouth. τ<sub>eff</sub> ≈ 21 s reaches 94% access by 60 s. <em class="plain">Low access resistance -the whole reservoir fills almost as fast as a much thinner electrode would.</em></span>
+            <span class="key-text"><strong>Charge, 30–60 s</strong> Ions enter the 15 µm wide mouth. τ<sub>eff</sub> ≈ 21 s reaches 94% access by 60 s. <em class="plain">Low access resistance — the reservoir fills almost as fast as a much thinner electrode would.</em></span>
           </button>
           <button class="cascade-key" data-mode="discharge" aria-pressed="false">
             <span class="key-swatch key-discharge"></span>
-            <span class="key-text"><strong>Discharge, ~3 h</strong> Ions exit through the 2.5 µm throat. ~6× the access resistance of the wide mouth throttles the release rate. <em class="plain">Same channel, same electrode -just a harder exit.</em></span>
+            <span class="key-text"><strong>Discharge, ~3 h</strong> Ions exit through the 2.5 µm throat. ~6× the access resistance of the wide mouth throttles the release rate. <em class="plain">Same channel, same electrode — just a harder exit.</em></span>
           </button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATA & CHARTS ============ -->
+  <div class="trace-divider" data-trace="data" aria-hidden="true">
+    <svg viewBox="0 0 1200 90" preserveAspectRatio="none">
+      <path class="trace-path trace-step" d="M0,50 L180,50 L180,20 L400,20 L400,68 L640,68 L640,34 L880,34 L880,58 L1200,58" />
+    </svg>
+  </div>
+
+  <section class="data-section" id="data" aria-label="Modeled performance data">
+    <div class="margin-col">
+      <div class="margin-tag">§ 4</div>
+      <div class="margin-rule"></div>
+      <p class="margin-note">Modeled from transport equations and stack geometry. Curves, not measurements — the fabricated electrode is next.</p>
+    </div>
+    <div class="content-col">
+      <div class="section-head">
+        <span class="eyebrow">THE DATA</span>
+        <h2>What the transport model predicts.</h2>
+        <p class="lede">Four views into the same mechanism: why the channel geometry matters, how fast ions actually reach the collector, what a discharge curve looks like, and where the resulting energy density lands next to the alternatives.</p>
+      </div>
+
+      <div class="chart-grid">
+
+        <!-- CHART 1: channel volume fraction vs half-spacing -->
+        <div class="chart-card">
+          <span class="chart-label">Channel volume fraction, symmetric vs. rectified geometry</span>
+          <svg class="chart-svg" viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet" aria-label="Line chart of channel volume fraction versus half-spacing">
+            <g class="chart-grid-lines">
+              <line x1="60" y1="30" x2="60" y2="270"/>
+              <line x1="60" y1="270" x2="500" y2="270"/>
+              <line x1="60" y1="150" x2="500" y2="150" class="mid"/>
+            </g>
+            <path class="draw-path chart-line-a" d="M60,270 C 90,90 100,55 130,45 C 200,42 350,40 500,38" />
+            <path class="draw-path chart-line-b" d="M60,270 C 150,268 250,264 340,255 C 400,248 460,242 500,238" />
+            <circle class="chart-point pt-a" cx="95" cy="60"></circle>
+            <circle class="chart-point pt-b" cx="330" cy="256"></circle>
+            <text class="chart-callout callout-a" x="102" y="52">ϕ ≈ 56% at Λ = 8.9 µm</text>
+            <text class="chart-callout callout-b" x="337" y="278">ϕ ≈ 1.3% at Λ = 75 µm</text>
+            <text class="chart-axis" x="60" y="292">0</text>
+            <text class="chart-axis" x="500" y="292" text-anchor="end">160 µm</text>
+            <text class="chart-axis" x="46" y="274" text-anchor="end">0%</text>
+            <text class="chart-axis" x="46" y="38" text-anchor="end">80%</text>
+            <text class="chart-axis-title" x="280" y="312" text-anchor="middle">Channel half-spacing Λ</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="sw sw-a"></i>Symmetric cylindrical channels</span>
+            <span><i class="sw sw-b"></i>Rectified conical channels</span>
+          </div>
+          <p class="chart-note">Both tuned for 30 s charge completion in a 600 µm electrode. The rectified geometry needs roughly 43× less dead volume at its operating spacing.</p>
+        </div>
+
+        <!-- CHART 2: ion access kinetics -->
+        <div class="chart-card">
+          <span class="chart-label">Ion access at the collector face, over time</span>
+          <svg class="chart-svg" viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet" aria-label="Line chart of normalized ion concentration versus time">
+            <g class="chart-grid-lines">
+              <line x1="60" y1="30" x2="60" y2="270"/>
+              <line x1="60" y1="270" x2="500" y2="270"/>
+              <line x1="60" y1="112" x2="500" y2="112" class="mid"/>
+            </g>
+            <path class="draw-path chart-line-a" d="M60,270 C 100,180 130,110 170,90 C 230,105 280,110 500,112" />
+            <path class="draw-path chart-line-b" d="M60,270 C 200,265 320,240 400,190 C 440,160 470,130 500,112" />
+            <line class="chart-threshold" x1="60" y1="112" x2="500" y2="112" stroke-dasharray="4 5"/>
+            <circle class="chart-point pt-a" cx="170" cy="90"></circle>
+            <text class="chart-callout callout-a" x="178" y="82">80% access, ≈25 s</text>
+            <text class="chart-axis" x="60" y="292">0 s</text>
+            <text class="chart-axis" x="500" y="292" text-anchor="end">200 s</text>
+            <text class="chart-axis" x="46" y="274" text-anchor="end">0%</text>
+            <text class="chart-axis" x="46" y="118" text-anchor="end">80%</text>
+            <text class="chart-axis-title" x="280" y="312" text-anchor="middle">Time since charge start</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="sw sw-a"></i>Rectified channel (15 µm mouth, 150 µm pitch)</span>
+            <span><i class="sw sw-b"></i>Symmetric channel, equal energy density</span>
+          </div>
+          <p class="chart-note">τ<sub>eff</sub> ≈ 21 s puts the rectified design at 80% ion access roughly six times faster than an equally energy-dense symmetric layout.</p>
+        </div>
+
+        <!-- CHART 3: discharge voltage profile -->
+        <div class="chart-card">
+          <span class="chart-label">Single-cell discharge profile, C/3 rate</span>
+          <svg class="chart-svg" viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet" aria-label="Line chart of cell voltage versus discharge time">
+            <g class="chart-grid-lines">
+              <line x1="60" y1="30" x2="60" y2="270"/>
+              <line x1="60" y1="270" x2="500" y2="270"/>
+            </g>
+            <path class="draw-path chart-line-a" d="M60,80 C 100,78 160,80 240,86 C 320,92 380,110 430,160 C 460,195 480,225 500,255" />
+            <line class="chart-threshold" x1="60" y1="255" x2="500" y2="255" stroke-dasharray="4 5"/>
+            <text class="chart-callout callout-a" x="130" y="70">plateau ≈ 1.9 V</text>
+            <text class="chart-callout callout-b" x="410" y="248">1.5 V cutoff</text>
+            <text class="chart-axis" x="60" y="292">0 h</text>
+            <text class="chart-axis" x="500" y="292" text-anchor="end">3.5 h</text>
+            <text class="chart-axis" x="46" y="86" text-anchor="end">2.0 V</text>
+            <text class="chart-axis" x="46" y="260" text-anchor="end">1.5 V</text>
+            <text class="chart-axis-title" x="280" y="312" text-anchor="middle">Discharge time</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="sw sw-a"></i>HZIC-RC single cell</span>
+          </div>
+          <p class="chart-note">A well-defined plateau near the oxygen-vacancy α-MnO₂ intercalation voltage, tapering to cutoff over roughly three hours.</p>
+        </div>
+
+        <!-- CHART 4: energy density comparison bar chart -->
+        <div class="chart-card">
+          <span class="chart-label">Volumetric energy density, in context</span>
+          <svg class="chart-svg chart-bars" viewBox="0 0 520 320" preserveAspectRatio="xMidYMid meet" aria-label="Bar chart comparing volumetric energy density">
+            <g class="chart-grid-lines">
+              <line x1="60" y1="270" x2="500" y2="270"/>
+            </g>
+            <rect class="draw-bar bar-c" x="100" y="228" width="70" height="42"></rect>
+            <rect class="draw-bar bar-b" x="230" y="150" width="70" height="120"></rect>
+            <rect class="draw-bar bar-a" x="360" y="46" width="70" height="224"></rect>
+            <text class="chart-bar-val" x="135" y="220">~45</text>
+            <text class="chart-bar-val" x="265" y="142">99.8</text>
+            <text class="chart-bar-val" x="395" y="38">235</text>
+            <text class="chart-bar-cap" x="135" y="288"><tspan x="135" dy="0">Typical aqueous</tspan><tspan x="135" dy="13">Zn-ion*</tspan></text>
+            <text class="chart-bar-cap" x="265" y="288">HZIC-RC</text>
+            <text class="chart-bar-cap" x="395" y="288">Li-ion 18650</text>
+            <text class="chart-axis-title" x="280" y="312" text-anchor="middle">Wh/L</text>
+          </svg>
+          <div class="chart-legend">
+            <span><i class="sw sw-c"></i>Aqueous Zn-ion, literature range</span>
+            <span><i class="sw sw-b"></i>HZIC-RC design target</span>
+            <span><i class="sw sw-a"></i>Li-ion 18650</span>
+          </div>
+          <p class="chart-note">*Approximate, drawn from the broad literature range for aqueous zinc-ion systems rather than one product. The 2.35× gap to Li-ion is a direct consequence of the aqueous voltage ceiling and isn't closable by materials selection alone.</p>
+        </div>
+
+      </div>
+
+      <div class="beyond-zinc">
+        <span class="beyond-zinc-mark">↳</span>
+        <p>The rectification principle isn't zinc-specific. Any electrode where a faradaic, energy-dense material competes with fast-charge channels for volume — sodium-ion layered oxides, other hybrid capacitor chemistries, porous flow-battery electrodes — can use the same asymmetric geometry to decouple the two.</p>
       </div>
     </div>
   </section>
@@ -395,41 +557,42 @@
 
   <section class="perf-section" id="performance" aria-label="Performance data">
     <div class="margin-col">
-      <div class="margin-tag">§ 4</div>
+      <div class="margin-tag">§ 5</div>
       <div class="margin-rule"></div>
-      <p class="margin-note">Design targets today, derived from stack geometry and half-cell literature -not yet a measured full cell. Three open issues below are unresolved on purpose.</p>
+      <p class="margin-note">Design targets today, derived from stack geometry and half-cell literature — not yet a measured full cell. Four open issues below are unresolved on purpose.</p>
     </div>
     <div class="content-col">
       <div class="section-head">
         <span class="eyebrow">PERFORMANCE</span>
         <h2>Honest numbers. Real constraints.</h2>
-        <p class="lede">The energy-density gap versus lithium-ion is real and not eliminable by materials selection -it's a direct consequence of the aqueous voltage ceiling (1.9 V vs. 3.6 V per cell). HZIC-RC targets applications where safety and cycle economics matter more than that gap.</p>
+        <p class="lede">The energy-density gap versus lithium-ion is real and not eliminable by materials selection — it's a direct consequence of the aqueous voltage ceiling (1.9 V vs. 3.6 V per cell). HZIC-RC targets applications where safety and cycle economics matter more than that gap.</p>
       </div>
 
       <div class="perf-table-wrap">
         <table class="perf-table">
           <thead>
-            <tr><th scope="col">Metric</th><th scope="col">BGC-X v2 MVP (prior)</th><th scope="col">HZIC-RC (current)</th><th scope="col">Li-ion 18650</th></tr>
+            <tr><th scope="col">Metric</th><th scope="col">HZIC-RC</th><th scope="col">Typical aqueous Zn-ion*</th><th scope="col">Li-ion 18650</th></tr>
           </thead>
           <tbody>
-            <tr><td>Volumetric energy density</td><td class="dim">29.0 Wh/L</td><td class="lead">99.8 Wh/L</td><td class="dim">235 Wh/L</td></tr>
-            <tr><td>Cell voltage</td><td class="dim">1.3 V</td><td class="lead">1.9 V</td><td class="dim">3.6 V</td></tr>
-            <tr><td>Stack voltage</td><td class="dim">3.9 V (3S)</td><td class="lead">3.8 V (2S)</td><td class="dim">3.6 V</td></tr>
-            <tr><td>Bulk charge time</td><td class="dim">30–60 s*</td><td class="lead">30–60 s</td><td class="dim">15–60 min</td></tr>
-            <tr><td>Discharge time</td><td class="dim">~45 min</td><td class="lead">~3 h</td><td class="dim">1–5 h</td></tr>
-            <tr><td>Rectification ratio</td><td class="dim">1× (symmetric)</td><td class="lead">~8× (design)</td><td class="dim">n/a</td></tr>
-            <tr><td>Thermal runaway risk</td><td class="dim good">Zero</td><td class="lead good">Zero</td><td class="dim bad">Significant</td></tr>
-            <tr><td>Materials cost at scale</td><td class="dim">$0.22/Wh est.</td><td class="lead">$0.12/Wh est.</td><td class="dim">$0.15–0.25/Wh</td></tr>
+            <tr><td>Volumetric energy density</td><td class="lead">99.8 Wh/L</td><td class="dim">~30–60 Wh/L</td><td class="dim">235 Wh/L</td></tr>
+            <tr><td>Cell voltage</td><td class="lead">1.9 V</td><td class="dim">1.2–1.5 V</td><td class="dim">3.6 V</td></tr>
+            <tr><td>Stack voltage (this design)</td><td class="lead">3.8 V (2S)</td><td class="dim">—</td><td class="dim">3.6 V</td></tr>
+            <tr><td>Bulk charge time</td><td class="lead">30–60 s</td><td class="dim">Minutes to sub-hour</td><td class="dim">15–60 min</td></tr>
+            <tr><td>Discharge time</td><td class="lead">~3 h</td><td class="dim">Tens of minutes to hours</td><td class="dim">1–5 h</td></tr>
+            <tr><td>Channel/charge-discharge rectification</td><td class="lead">~8× (design)</td><td class="dim">~1× (symmetric)</td><td class="dim">n/a</td></tr>
+            <tr><td>Thermal runaway risk</td><td class="lead good">Zero</td><td class="dim good">Zero</td><td class="dim bad">Significant</td></tr>
+            <tr><td>Materials cost at scale (est.)</td><td class="lead">$0.12/Wh</td><td class="dim">$0.20–0.90/Wh</td><td class="dim">$0.15–0.25/Wh</td></tr>
+            <tr><td>Cobalt / Lithium</td><td class="lead good">None</td><td class="dim good">None</td><td class="dim bad">Required</td></tr>
           </tbody>
         </table>
-        <p class="table-fn">* Zone A/B only in the prior design; full equilibration took 30–45 min.</p>
+        <p class="table-fn">*Approximate literature range for aqueous zinc-ion hybrid and battery systems generally, not a specific product — provided for context, not a head-to-head benchmark.</p>
       </div>
 
       <div class="citation-block open-issues">
         <span class="citation-mark">!</span>
         <div class="citation-text">
-          <span class="citation-title">Three things we haven't proven yet</span>
-          <span class="citation-meta">Tapered-channel fabrication uniformity at scale · cycle life at N/P = 3.1× · true rectification ratio in a real, imperfect electrode. All three are named explicitly in the paper and gate the roadmap above before we report validated numbers.</span>
+          <span class="citation-title">Four things we haven't proven yet</span>
+          <span class="citation-meta">Tapered-channel fabrication uniformity at scale · cycle life at N/P = 3.1× · true rectification ratio in a real, imperfect electrode · bottom-up cost validation at scale. All four are named explicitly in the technical paper and gate the roadmap above before we report validated (not modeled) numbers.</span>
         </div>
       </div>
     </div>
@@ -444,7 +607,7 @@
 
   <section class="apps-section" id="applications" aria-label="Applications">
     <div class="margin-col">
-      <div class="margin-tag">§ 5</div>
+      <div class="margin-tag">§ 6</div>
       <div class="margin-rule"></div>
       <p class="margin-note">Where a several-hour discharge and a sub-minute refill both matter, not just one.</p>
     </div>
@@ -463,7 +626,7 @@
         <div class="app-card">
           <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="11" y="14" width="18" height="14" rx="2"/><circle cx="16" cy="21" r="1.6" fill="currentColor" stroke="none"/><circle cx="24" cy="21" r="1.6" fill="currentColor" stroke="none"/><path d="M20 14V8M14 8h12"/><path d="M11 21H5M29 21h6"/></svg>
           <h3>Robotics &amp; automation</h3>
-          <p>The wide-mouth channel absorbs a fast top-up during idle periods between duty cycles, while the narrow throat meters out a steady, controlled discharge during operation -no separate charger logic needed.</p>
+          <p>The wide-mouth channel absorbs a fast top-up during idle periods between duty cycles, while the narrow throat meters out a steady, controlled discharge during operation — no separate charger logic needed.</p>
         </div>
         <div class="app-card">
           <svg class="app-glyph" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="20" cy="20" r="13"/><path d="M20 11v9l6 4"/></svg>
@@ -488,7 +651,7 @@
 
   <section class="team-section" id="team" aria-label="Team">
     <div class="margin-col">
-      <div class="margin-tag">§ 6</div>
+      <div class="margin-tag">§ 7</div>
       <div class="margin-rule"></div>
       <p class="margin-note">Four people, Chennai. Plus the underlying technical reference.</p>
     </div>
@@ -524,7 +687,7 @@
       <div class="citation-block">
         <span class="citation-mark">[1]</span>
         <div class="citation-text">
-          <span class="citation-title">HZIC-RC: A Rectified Cascade Zinc Hybrid Capacitor -Technical Reference.</span>
+          <span class="citation-title">HZIC-RC: A Rectified Cascade Zinc Hybrid Capacitor — Technical Reference.</span>
           <span class="citation-meta">Conical microchannel transport, oxygen-vacancy cathode engineering, asymmetric ion-flux architecture. Chennai, 2026.</span>
         </div>
         <a href="https://drive.google.com/file/d/1FTR4LMyNDoaUiZof_QmGBkauwTnWZ-fO/view?usp=sharing" target="_blank" rel="noopener" class="citation-link">Read the paper ↗</a>
@@ -541,7 +704,7 @@
 
   <section class="contact-section" id="contact" aria-label="Contact">
     <div class="margin-col">
-      <div class="margin-tag">§ 7</div>
+      <div class="margin-tag">§ 8</div>
       <div class="margin-rule"></div>
       <p class="margin-note">Seeking capital and collaborators. All three channels carry equal weight.</p>
     </div>
@@ -549,7 +712,7 @@
       <div class="section-head">
         <span class="eyebrow">CONTACT</span>
         <h2>Let's build the post-lithium future.</h2>
-        <p class="lede">We're seeking early-stage capital and technical collaborators to fabricate and validate the rectified channel -in deep-tech investing, energy materials, robotics, micro-mobility, or industrial storage.</p>
+        <p class="lede">We're seeking early-stage capital and technical collaborators to fabricate and validate the rectified channel — in deep-tech investing, energy materials, robotics, micro-mobility, or industrial storage.</p>
       </div>
 
       <div class="contact-grid">
