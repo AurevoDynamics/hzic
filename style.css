@@ -1,6 +1,6 @@
 /* ==========================================================
    AUREVO DYNAMICS — "Lab instrument, not pitch deck"
-   HZIC-RC rectified-cascade revision
+   HZIC-RC rectified-cascade revision — investor edition
    ========================================================== */
 
 :root{
@@ -134,7 +134,7 @@ p + p{ margin-top:1.1em; }
    ========================================================== */
 .hero, .stats-strip, .roadmap-section, .problem-section,
 .tech-section, .cascade-section, .data-section, .perf-section,
-.apps-section, .team-section, .contact-section,
+.apps-section, .team-section, .opportunity-section, .contact-section,
 .site-footer{
   display:grid;
   grid-template-columns: var(--margin-w) 1fr;
@@ -187,10 +187,63 @@ p + p{ margin-top:1.1em; }
 }
 
 /* ==========================================================
+   FOMO BANNER — top-of-page urgency strip
+   ========================================================== */
+.fomo-banner{
+  position:relative;
+  z-index:210;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.fomo-inner{
+  max-width:1480px;
+  margin:0 auto;
+  padding: .55rem 5vw;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  font-family:var(--mono);
+  font-size:.76rem;
+  letter-spacing:.02em;
+}
+.fomo-dot{
+  width:7px; height:7px;
+  border-radius:50%;
+  background:var(--copper);
+  flex-shrink:0;
+  box-shadow: 0 0 0 3px rgba(196,87,26,.25);
+  animation: fomo-pulse 2.2s ease-in-out infinite;
+}
+@keyframes fomo-pulse{
+  0%,100%{ box-shadow: 0 0 0 3px rgba(196,87,26,.25); }
+  50%{ box-shadow: 0 0 0 6px rgba(196,87,26,.08); }
+}
+.fomo-text{
+  color: rgba(250,248,243,.86);
+  flex:1;
+}
+.fomo-link{
+  color:var(--copper);
+  font-weight:700;
+  white-space:nowrap;
+  flex-shrink:0;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease);
+}
+.fomo-link:hover{ border-color:var(--copper); }
+
+@media (max-width: 700px){
+  .fomo-inner{ flex-wrap:wrap; font-size:.68rem; padding:.7rem 6vw; }
+  .fomo-text{ flex-basis:100%; order:2; }
+  .fomo-link{ order:1; margin-left:auto; }
+}
+
+/* ==========================================================
    NAV
    ========================================================== */
 #site-nav{
-  position:fixed;
+  position:sticky;
   top:0; left:0; width:100%;
   z-index:200;
   background: var(--scrim);
@@ -219,7 +272,7 @@ p + p{ margin-top:1.1em; }
 }
 .mark-glyph{ color:var(--copper); font-size:1rem; }
 
-.nav-links{ display:flex; align-items:center; gap:2.1rem; }
+.nav-links{ display:flex; align-items:center; gap:1.7rem; }
 .nav-links a{
   font-family:var(--mono);
   font-size:.78rem;
@@ -227,6 +280,7 @@ p + p{ margin-top:1.1em; }
   color:var(--ink);
   position:relative;
   padding-bottom:4px;
+  white-space:nowrap;
 }
 .nav-links a:not(.nav-cta)::after{
   content:"";
@@ -305,6 +359,7 @@ html[data-theme="dark"] .theme-toggle-mobile .icon-moon{ display:inline; }
   display:flex; flex-direction:column; gap:1.6rem;
   transform:translateX(100%);
   transition: transform .4s var(--ease);
+  overflow-y:auto;
 }
 .mobile-nav.open{ transform:translateX(0); }
 .mobile-nav a{
@@ -315,7 +370,7 @@ html[data-theme="dark"] .theme-toggle-mobile .icon-moon{ display:inline; }
 }
 
 .nav-trace{
-  position:fixed; top:0; left:0; width:100%; height:2px;
+  position:relative; top:0; left:0; width:100%; height:2px;
   z-index:201;
   pointer-events:none;
 }
@@ -329,7 +384,7 @@ html[data-theme="dark"] .theme-toggle-mobile .icon-moon{ display:inline; }
 /* ==========================================================
    BUTTONS
    ========================================================== */
-.hero-actions{ display:flex; gap:1rem; margin-top:2.4rem; flex-wrap:wrap; }
+.hero-actions{ display:flex; gap:1rem; margin-top:2.4rem; flex-wrap:wrap; align-items:center; }
 
 .btn-primary{
   font-family:var(--mono);
@@ -348,6 +403,10 @@ html[data-theme="dark"] .theme-toggle-mobile .icon-moon{ display:inline; }
   transform:translateY(-2px);
   box-shadow: 0 10px 24px rgba(196,87,26,.28);
 }
+.btn-large{
+  padding: 1.1em 2em;
+  font-size:.88rem;
+}
 
 .btn-ghost{
   font-family:var(--mono);
@@ -365,11 +424,23 @@ html[data-theme="dark"] .theme-toggle-mobile .icon-moon{ display:inline; }
 .arrow{ display:inline-block; transition:transform .25s var(--ease); }
 .btn-ghost:hover .arrow{ transform:translate(2px,-2px); }
 
+.btn-line{
+  font-family:var(--mono);
+  font-size:.8rem;
+  letter-spacing:.04em;
+  font-weight:600;
+  color:var(--copper);
+  padding:.6em .2em;
+  border-bottom:1px solid var(--copper);
+  transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.btn-line:hover{ color:var(--ink); border-color:var(--ink); }
+
 /* ==========================================================
    HERO
    ========================================================== */
 .hero{
-  padding-top: 5.5rem;
+  padding-top: 3.5rem;
   align-items:start;
   min-height:100vh;
   position:relative;
@@ -394,8 +465,17 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   color:var(--gray);
   margin-bottom:1.6rem;
   display:flex; gap:.6em; flex-wrap:wrap;
+  align-items:center;
 }
 .tag-sep{ opacity:.4; }
+.tag-accent{
+  color:var(--copper);
+  font-weight:700;
+  border:1px solid var(--copper);
+  border-radius:2px;
+  padding:.15em .5em;
+  letter-spacing:.1em;
+}
 
 .hero-title{ margin-bottom:1.4rem; }
 
@@ -405,6 +485,17 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   max-width:54ch;
 }
 .hero-sub strong{ color:var(--ink); font-weight:600; }
+
+.hero-punch{
+  font-family:var(--mono);
+  font-size:.98rem;
+  color:var(--ink);
+  max-width:52ch;
+  margin-top:1.4em !important;
+  padding-left:.9em;
+  border-left:2px solid var(--copper);
+  line-height:1.6;
+}
 
 /* --- electrode diagram --- */
 .electrode-fig{ margin-top:4rem; }
@@ -577,7 +668,8 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
 }
 .trace-divider[data-trace="roadmap"] .trace-path,
 .trace-divider[data-trace="tech"] .trace-path,
-.trace-divider[data-trace="applications"] .trace-path{
+.trace-divider[data-trace="applications"] .trace-path,
+.trace-divider[data-trace="opportunity"] .trace-path{
   stroke: var(--teal);
 }
 .trace-path.is-drawn{ stroke-dashoffset:0; }
@@ -586,6 +678,31 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   .trace-path{ stroke-dashoffset:0 !important; transition:none !important; }
   .ion-dot{ animation:none !important; opacity:.6 !important; bottom:18px !important; }
 }
+
+/* ==========================================================
+   MANIFESTO — big centered statement, Apple-style pause
+   ========================================================== */
+.manifesto-section{
+  max-width:1100px;
+  margin: 3.5rem auto;
+  padding: 3.6rem 6vw;
+  text-align:center;
+}
+.manifesto-text{
+  font-family:var(--mono);
+  font-size:clamp(1.3rem, 3vw, 2.1rem);
+  line-height:1.4;
+  color:var(--gray);
+  max-width:none;
+  margin:0 auto;
+  letter-spacing:-0.01em;
+}
+.manifesto-text strong{
+  color:var(--ink);
+  font-weight:700;
+}
+.manifesto-alt .manifesto-text{ color:var(--teal); }
+.manifesto-alt .manifesto-text strong{ color:var(--ink); }
 
 /* ==========================================================
    STATS STRIP
@@ -891,11 +1008,12 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
 .app-card p{ color:var(--gray); font-size:.95rem; }
 
 /* ==========================================================
-   TEAM
+   TEAM — fixed to center 3 cards instead of stretching to 4 columns
    ========================================================== */
 .team-grid{
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+  justify-content:center;
   gap:1px;
   background:var(--parchment);
   border:1px solid var(--parchment);
@@ -905,6 +1023,8 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   padding:1.8rem;
   display:flex;
   flex-direction:column;
+  align-items:center;
+  text-align:center;
   gap:.9rem;
   transition: background .3s var(--ease);
 }
@@ -919,7 +1039,7 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   display:flex; align-items:center; justify-content:center;
   border-radius:50%;
 }
-.team-card p{ font-size:.85rem; color:var(--gray); }
+.team-card p{ font-size:.85rem; color:var(--gray); max-width:none; }
 
 .citation-block{
   margin-top:2.6rem;
@@ -950,6 +1070,73 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   align-self:center;
   white-space:nowrap;
 }
+
+/* ==========================================================
+   OPPORTUNITY / WHY NOW (FOMO section)
+   ========================================================== */
+.opportunity-section{ background: rgba(196,87,26,.025); }
+html[data-theme="dark"] .opportunity-section{ background: rgba(255,138,68,.03); }
+
+.opportunity-head .eyebrow{ color:var(--teal); }
+.opportunity-head .eyebrow::before{ background:var(--teal); }
+
+.opportunity-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:1px;
+  background:var(--parchment);
+  border:1px solid var(--parchment);
+  margin-top:1rem;
+}
+.opportunity-card{
+  background:var(--paper);
+  padding:2.2rem;
+  position:relative;
+  transition: background .3s var(--ease);
+}
+.opportunity-card:hover{ background: rgba(196,87,26,.05); }
+.opp-index{
+  font-family:var(--mono);
+  font-size:.7rem;
+  font-weight:700;
+  color:var(--copper);
+  letter-spacing:.1em;
+  display:block;
+  margin-bottom:.9rem;
+}
+.opportunity-card h3{ margin-bottom:.7rem; }
+.opportunity-card p{ color:var(--gray); font-size:.94rem; }
+
+.opportunity-cta{
+  margin-top: 2.8rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+  padding: 2rem 2.2rem;
+  border:1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+html[data-theme="dark"] .opportunity-cta{ background: var(--parchment); color:var(--ink); border-color:var(--parchment); }
+.opportunity-cta-text{ flex:1; min-width:260px; }
+.opp-cta-kicker{
+  font-family:var(--mono);
+  font-size:.68rem;
+  letter-spacing:.14em;
+  font-weight:700;
+  color:var(--copper);
+  display:block;
+  margin-bottom:.6rem;
+}
+.opportunity-cta-text p{
+  color: rgba(250,248,243,.85);
+  max-width:60ch;
+  font-size:.96rem;
+}
+html[data-theme="dark"] .opportunity-cta-text p{ color: rgba(21,20,15,.8); }
+.opportunity-cta .btn-primary{ flex-shrink:0; }
 
 /* ==========================================================
    CONTACT
@@ -1211,7 +1398,7 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   .stat-grid{ grid-template-columns: repeat(2,1fr); }
   .advance-grid{ grid-template-columns: 1fr; }
   .app-grid{ grid-template-columns: 1fr; }
-  .team-grid{ grid-template-columns: repeat(2,1fr); }
+  .opportunity-grid{ grid-template-columns: 1fr; }
   .roadmap-instrument{ grid-template-columns: 1fr; gap:2.2rem; }
   .rm-track-line{ display:none; }
   .rm-step{ padding-top:0; padding-left:1.8rem; }
@@ -1225,7 +1412,7 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
 
   .hero, .stats-strip, .roadmap-section, .problem-section,
   .tech-section, .cascade-section, .data-section, .perf-section,
-  .apps-section, .team-section, .contact-section,
+  .apps-section, .team-section, .opportunity-section, .contact-section,
   .site-footer{
     grid-template-columns: 1fr;
   }
@@ -1245,7 +1432,7 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   #site-nav .nav-inner > .theme-toggle{ display:none; }
 
   h1{ font-size: clamp(2.2rem, 9vw, 3.2rem); }
-  .hero{ padding-top:5rem; min-height:auto; }
+  .hero{ padding-top:2.5rem; min-height:auto; }
   .hero-content{ padding-top:1.5rem; }
 
   .measure-table{ font-size:.76rem; }
@@ -1253,12 +1440,18 @@ html[data-theme="dark"] .ion-canvas{ opacity:.8; }
   .perf-table-wrap{ overflow-x:auto; }
   .perf-table{ min-width:560px; }
 
+  .opportunity-cta{ flex-direction:column; align-items:stretch; text-align:center; }
+  .opportunity-cta .btn-primary{ justify-content:center; }
+
+  .manifesto-section{ padding: 2.4rem 6vw; margin: 2rem auto; }
+
   .footer-inner{ flex-direction:column; align-items:flex-start; padding-bottom:2.6rem; }
 }
 
 @media (max-width: 540px){
   .stat-grid{ grid-template-columns: 1fr 1fr; }
-  .team-grid{ grid-template-columns: 1fr 1fr; }
+  .team-grid{ grid-template-columns: 1fr; justify-content:stretch; }
   .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn-line{ text-align:center; }
   .citation-block{ padding:1.2rem; }
 }
