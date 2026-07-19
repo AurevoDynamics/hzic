@@ -1,6 +1,6 @@
 /* ==========================================================
    AUREVO DYNAMICS — interaction layer
-   HZIC-RC rectified-cascade revision
+   HZIC-RC rectified-cascade revision — investor edition
    ========================================================== */
 (function(){
   "use strict";
@@ -42,7 +42,8 @@
   var revealTargets = document.querySelectorAll(
     ".section-head, .stat-grid, .roadmap-instrument, .problem-grid, " +
     ".advance-card, .cascade-diagram, .perf-table-wrap, .app-card, " +
-    ".team-card, .citation-block, .contact-grid, .electrode-fig"
+    ".team-card, .citation-block, .contact-grid, .electrode-fig, " +
+    ".manifesto-text, .opportunity-card, .opportunity-cta"
   );
   revealTargets.forEach(function(el){ el.classList.add("reveal"); });
 
